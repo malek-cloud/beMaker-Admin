@@ -1,0 +1,32 @@
+.body {
+    /* background-color: rgb(255, 255, 249);*/
+    background-color: rgb(247, 234, 247);
+    text-align: center;
+    height: 100vh;
+    margin: auto;
+    padding: auto;
+    overflow-y: hidden;
+}
+
+.title {
+    margin-top: 10vh;
+    color: rgb(64, 7, 66);
+}
+
+.mainList {
+    display: inline-flex;
+}
+
+.mainItem {
+    margin: 16vh 4vw;
+    height: 180px;
+    width: 180px;
+    border: 16px solid white;
+    border-radius: 50%;
+}
+
+.mainText {
+    position: relative;
+    top: 36%;
+    font-size: 24px;
+}
