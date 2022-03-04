@@ -1,0 +1,93 @@
+.activitiesPage {
+    margin: 8vh 2vw 0px 2vw;
+}
+
+.activityTitle {
+    margin-bottom: 10vh;
+}
+
+.activityList {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.activityItem {
+    display: inline-flex;
+    justify-content: space-between;
+    border-bottom: 0.4px solid rgb(192, 175, 175);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 8px;
+    align-items: center;
+    cursor: pointer;
+}
+
+.activityItem:hover {
+    background-color: rgb(252, 236, 255);
+}
+
+.changeItem {
+    display: inline-flex;
+    margin-top: 8px;
+}
+
+.editActivity {
+    margin-right: 16px;
+    color: rgb(64, 7, 66);
+    transition: 0.4s;
+}
+
+.editActivity:hover {
+    transform: scale(1.5);
+}
+
+.deleteActivity {
+    color: rgb(64, 7, 66);
+    transition: 0.4s;
+}
+
+.deleteActivity:hover {
+    transform: scale(1.5);
+}
+
+.acttitle {
+    display: inline-flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.goBack {
+    display: inline-flex;
+    text-align: end;
+    align-items: center;
+    justify-content: center;
+    margin-top: 16px;
+    cursor: pointer;
+    transition: 0.4s;
+    height: 70px;
+    text-decoration: none;
+    color: rgb(64, 7, 66);
+}
+
+.goBack:hover {
+    transform: scale(1.2);
+    background-color: beige;
+    padding: 1px 24px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+.back {
+    font-size: 20px;
+    font-weight: 600;
+    margin-right: 18px;
+    margin-bottom: 5px;
+}
+
+.backIcon {
+    color: rgb(64, 7, 66);
+    transition: 0.4s;
+}

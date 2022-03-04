@@ -1,10 +1,8 @@
 .body {
-    /* background-color: rgb(255, 255, 249);*/
-    background-color: rgb(247, 234, 247);
+    background-color: rgba(121, 118, 118, 0.075);
+    /* background-color: rgb(252, 252, 252);*/
     text-align: center;
     height: 100vh;
-    margin: auto;
-    padding: auto;
     overflow-y: hidden;
 }
 
@@ -13,20 +11,85 @@
     color: rgb(64, 7, 66);
 }
 
+.element {
+    align-items: center;
+    background: linear-gradient(-45deg, rgba(0, 0, 0, 0.22), rgba(255, 255, 255, 0.651));
+    box-shadow: 0px 0px 16px 8px rgba(131, 126, 126, 0.411), -8px -8px 12px 0 rgba(252, 251, 251, 0.295);
+    border-radius: 50%;
+    display: flex;
+    height: 180px;
+    margin: 20vh 4vw 0vh 4vw;
+    justify-content: center;
+    width: 180px;
+    cursor: pointer;
+    transition: 0.5s;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.22), rgba(255, 255, 255, 0.26));
+    text-decoration: none;
+    margin-top: 6vh;
+}
+
+.acttitle2 {
+    display: inline-flex;
+    justify-content: space-between;
+    width: 64%;
+    align-items: center;
+}
+
+.elementActivity {
+    align-items: center;
+    background: linear-gradient(-45deg, rgba(0, 0, 0, 0.22), rgba(255, 255, 255, 0.651));
+    box-shadow: 0px 0px 16px 8px rgba(131, 126, 126, 0.411), -8px -8px 12px 0 rgba(252, 251, 251, 0.295);
+    border-radius: 50%;
+    display: flex;
+    height: 180px;
+    justify-content: center;
+    width: 180px;
+    cursor: pointer;
+    transition: 0.5s;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.22), rgba(255, 255, 255, 0.26));
+    text-decoration: none;
+    margin-top: 5vh;
+}
+
+.element:hover {
+    transform: scale(1.4);
+}
+
+.elementActivity:hover {
+    transform: scale(1.2);
+}
+
 .mainList {
     display: inline-flex;
+    margin-top: 4vh;
+}
+
+.mainListActivity {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin-top: 5vh;
+    margin-left: 16%;
+    margin-right: 12%;
+}
+
+.plusSigne {
+    font-size: 120px;
+    font-weight: 500;
+    color: rgb(64, 7, 66);
 }
 
 .mainItem {
+    box-shadow: 20px 20px 50px #00d2c6, -30px -30px 60px #00ffff;
     margin: 16vh 4vw;
-    height: 180px;
-    width: 180px;
-    border: 16px solid white;
+    height: 200px;
+    background-color: white;
+    width: 200px;
+    border: 5px solid rgb(250, 243, 243);
     border-radius: 50%;
 }
 
 .mainText {
-    position: relative;
-    top: 36%;
     font-size: 24px;
+    color: rgb(64, 7, 66);
+    font-weight: 700;
 }
