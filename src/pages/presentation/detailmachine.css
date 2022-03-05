@@ -1,0 +1,21 @@
+.detailPage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.detailTitle {
+    margin: 6vh 0vw 3vh 0vh;
+}
+
+.descriptionDetail {
+    margin: 0vh 24vw 4vh 24vw;
+    font-size: 20px;
+}
+
+.imageDetail {
+    margin-bottom: 8vh;
+    width: 500px;
+    height: 300px;
+}
