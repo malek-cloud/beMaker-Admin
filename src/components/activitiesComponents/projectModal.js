@@ -58,9 +58,21 @@ function ProjectModal(props) {
     setLoader(true);
     try {
       const fd = new FormData();
-      fd.append("name", nom.current.value);
-      fd.append("image", selectedFile);
-      fd.append("description", description.current.value);
+
+      if (selectedFile) {
+        fd.append("image", selectedFile);
+        fd.append("name", nom.current.value);
+        fd.append("description", description.current.value);
+        console.log('fama image');
+
+      }else{
+        fd.append("name", nom.current.value);
+        fd.append("description", description.current.value);
+        /*fd.append("image", [props.image.replace('\\','/')]);*/
+        console.log('famech image');
+        
+        
+      }
       const response = await axios({
         method: "patch",
         url: `http://localhost:5000/activities/editProject/${props.id}`,

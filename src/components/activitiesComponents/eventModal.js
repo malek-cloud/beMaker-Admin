@@ -60,11 +60,23 @@ function EventModal(props) {
     setLoader(true);
     try {
       const fd = new FormData();
-      fd.append("name", nom.current.value);
-      fd.append("image", selectedFile);
-      fd.append("location", location.current.value);
-      fd.append("animator", animator.current.value);
-      fd.append("description", description.current.value);
+      if (selectedFile) {
+        fd.append("image", selectedFile);
+        fd.append("name", nom.current.value);
+        fd.append("description", description.current.value);
+        fd.append("location", location.current.value);
+        fd.append("animator", animator.current.value);
+        console.log('fama image');
+
+      }else{
+        fd.append("name", nom.current.value);
+        fd.append("description", description.current.value);
+        fd.append("location", location.current.value);
+        fd.append("animator", animator.current.value);
+        console.log('famech image');
+        
+        
+      }
       const response = await axios({
         method: "patch",
         url: `http://localhost:5000/activities/editEvent/${props.id}`,

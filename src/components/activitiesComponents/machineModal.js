@@ -60,10 +60,13 @@ function ActModal(props) {
         fd.append("image", selectedFile);
         fd.append("name", nom.current.value);
         fd.append("description", description.current.value);
+        console.log('fama image');
+
       }else{
         fd.append("name", nom.current.value);
         fd.append("description", description.current.value);
-        fd.append("image", [props.image.replace('\\','/')]);
+        /*fd.append("image", [props.image.replace('\\','/')]);*/
+        console.log('famech image');
         
         
       }
