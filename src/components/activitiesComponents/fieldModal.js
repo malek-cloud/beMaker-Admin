@@ -1,42 +1,26 @@
 import Modal from "react-bootstrap/Modal";
 import "./modal.css";
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState } from "react";
 import Button from "react-bootstrap/Button";
 import axios from "axios";
-function AddModal(props) {
+function FieldMachine(props) {
   const nom = useRef();
   const description = useRef();
-  const [selectedFile, setSelectedFile] = useState(null);
   const [loader, setLoader] = useState(false);
-  const [preview, setPreview] = useState(false);
   
-  useEffect(()=>{
-    if(!selectedFile){
-      return;
-    }
-    const fileReader = new FileReader();
-    fileReader.onload = ()=>{
-      setPreview(fileReader.result);
-    }
-    fileReader.readAsDataURL(selectedFile)
-  }, [selectedFile]);
+
   const close =()=>{
   props.onHide();
-  setPreview();
   }
-  const fileSelectedHandler = (event) => {
-    setSelectedFile(event.target.files[0]);
-  };
   const submit = async () => {
     setLoader(true);
     try {
       const fd = new FormData();
       fd.append("name", nom.current.value);
-      fd.append("image", selectedFile);
       fd.append("description", description.current.value);
       const response = await axios({
         method: "post",
-        url: "http://localhost:5000/activities/createMachine",
+        url: "http://localhost:5000/activities/createField",
         data: fd,
         headers: { "Content-Type": "multipart/form-data" },
       });
@@ -45,7 +29,6 @@ function AddModal(props) {
         setLoader(false);
         props.onHide();
         window.location.reload(true);
-        setPreview();
       }
       console.log("hedhy el donne : " + data);
     } catch (err) {
@@ -57,11 +40,10 @@ function AddModal(props) {
     try {
       const fd = new FormData();
       fd.append("name", nom.current.value);
-      fd.append("image", selectedFile);
       fd.append("description", description.current.value);
       const response = await axios({
         method: "patch",
-        url: `http://localhost:5000/activities/editMachine/${props.id}`,
+        url: `http://localhost:5000/activities/editField/${props.id}`,
         data: fd,
         headers: { "Content-Type": "multipart/form-data" },
       });
@@ -70,11 +52,10 @@ function AddModal(props) {
         setLoader(false);
         props.onHide();
         window.location.reload(true);
-        setPreview();
       }
       console.log("hedhy el donne : " + data);
     } catch (err) {
-      console.log("erreur mateb3athch el machine raw" + err);
+      console.log("erreur mateb3athch el field raw" + err);
     }
   };
   return (
@@ -94,40 +75,34 @@ function AddModal(props) {
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <div className="modalForm">
           <div className="inputsModalForm">
             <input
               type="text"
               className="nameModal"
-              placeholder="nom de la machine"
+              placeholder="nom du domaine"
               ref={nom}
               defaultValue = {props.edit ? props.name : ""}
             />
             <textarea
-              placeholder="description de la machine..."
+              placeholder="description du domaine..."
               cols="50"
               rows="8"
               ref={description}
               className="descriptionModal"
+              defaultValue={props.edit ? props.description : ""}
             >
-              {props.edit ? props.description : ""}
+              
               </textarea>
           </div>
-          <div className="imageModalForm">
-            <input type="file" onChange={fileSelectedHandler}  />
-            {preview && !props.edit && <img className="imageModal" src={preview} alt="Preview" />}
-            {!preview && !props.edit && <img className="imageModal" src="/images/pick.png" alt="Pick" />}
-            {!preview && props.edit && <img className="imageModal" src={props.image} alt="Pick" />}
-          </div>
-        </div>
+        
       </Modal.Body>
       <Modal.Footer>
         <Button onClick={close} className="modalButton">
           Close
         </Button>
         {loader ? (
-          <div class="spinner-border" role="status">
-            <span class="sr-only"></span>
+          <div className="spinner-border" role="status">
+            <span className="sr-only"></span>
           </div>
         ) : (
           <Button className="modalButton" onClick={props.click==="update" ? editMachine : submit}>
@@ -139,4 +114,4 @@ function AddModal(props) {
   );
 }
 
-export default AddModal;
+export default FieldMachine;

@@ -95,7 +95,7 @@
 .addActivity {
     background-color: rgb(64, 7, 66);
     padding: 8px 12px;
-    width: 132px;
+    width: fit-content;
     color: white;
     font-size: 18px;
     margin-bottom: 20px;
