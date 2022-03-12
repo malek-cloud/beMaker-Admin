@@ -38,7 +38,7 @@ function ProjectModal(props) {
       fd.append("description", description.current.value);
       const response = await axios({ 
         method: "post",
-        url : process.env.REACT_APP_BACKEND_URL + `createProject`,
+        url : process.env.REACT_APP_BACKEND_URL + `activities/createProject`,
 
         data: fd,
         headers: { "Content-Type": "multipart/form-data" },
@@ -76,7 +76,7 @@ function ProjectModal(props) {
       }
       const response = await axios({
         method: "patch",
-        url : process.env.REACT_APP_BACKEND_URL + `editProject/${props.id}`,
+        url : process.env.REACT_APP_BACKEND_URL + `activities/editProject/${props.id}`,
         data: fd,
         headers: { "Content-Type": "multipart/form-data" },
       });
