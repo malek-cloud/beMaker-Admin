@@ -24,7 +24,7 @@ const Activity = (props) => {
     } else if (props.title === "Nos Projets") {
       axios({
         method: "get",
-        url : process.env.REACT_APP_BACKEND_URL +'Projects',
+        url : process.env.REACT_APP_BACKEND_URL +'activities/Projects',
         headers: { "Content-Type": "multipart/form-data" },
       }).then((resp) => {
         setActivities(resp.data.projects);
@@ -35,7 +35,7 @@ const Activity = (props) => {
     } else if (props.title === "Nos Domaines") {
       axios({
         method: "get",
-        url : process.env.REACT_APP_BACKEND_URL +'Fields',
+        url : process.env.REACT_APP_BACKEND_URL +'activities/Fields',
 
         headers: { "Content-Type": "multipart/form-data" },
       }).then((resp) => {
@@ -47,7 +47,7 @@ const Activity = (props) => {
     }else if (props.title === "Nos Evénements") {
       axios({
         method: "get",
-        url : process.env.REACT_APP_BACKEND_URL +'Events',
+        url : process.env.REACT_APP_BACKEND_URL +'activities/Events',
 
         headers: { "Content-Type": "multipart/form-data" },
       }).then((resp) => {
