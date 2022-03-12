@@ -36,7 +36,7 @@ function ActModal(props) {
       fd.append("description", description.current.value);
       const response = await axios({
         method: "post",
-        url : process.env.REACT_APP_BACKEND_URL + `createMachine`,
+        url : process.env.REACT_APP_BACKEND_URL + "createMachine",
         data: fd,
         headers: { "Content-Type": "multipart/form-data" },
       });
