@@ -13,7 +13,8 @@ const GetMachine = (props) => {
       try {
         const response = await axios({
           method: "delete",
-          url: `http://localhost:5000/activities/deleteMachine/${props.id}`,
+        url : process.env.REACT_APP_BACKEND_URL + `deleteMachine/${props.id}`,
+
           headers: { "Content-Type": "multipart/form-data" },
         });
         const data = response.status;
@@ -29,7 +30,8 @@ const GetMachine = (props) => {
       try {
         const response = await axios({
           method: "delete",
-          url: `http://localhost:5000/activities/deleteField/${props.id}`,
+        url : process.env.REACT_APP_BACKEND_URL + `deleteField/${props.id}`,
+
           headers: { "Content-Type": "multipart/form-data" },
         });
         const data = response.status;
@@ -44,7 +46,8 @@ const GetMachine = (props) => {
       try {
         const response = await axios({
           method: "delete",
-          url: `http://localhost:5000/activities/deleteProject/${props.id}`,
+        url : process.env.REACT_APP_BACKEND_URL + `deleteProject/${props.id}`,
+
           headers: { "Content-Type": "multipart/form-data" },
         });
         const data = response.status;

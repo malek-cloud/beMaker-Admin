@@ -13,7 +13,7 @@ const Activity = (props) => {
     if (props.title === "Nos Machines") {
       axios({
         method: "get",
-        url: "http://localhost:5000/activities/Machines",
+        url : process.env.REACT_APP_BACKEND_URL +'activities/Machines',
         headers: { "Content-Type": "multipart/form-data" },
       }).then((resp) => {
         setActivities(resp.data.machines);
@@ -24,7 +24,7 @@ const Activity = (props) => {
     } else if (props.title === "Nos Projets") {
       axios({
         method: "get",
-        url: "http://localhost:5000/activities/Projects",
+        url : process.env.REACT_APP_BACKEND_URL +'Projects',
         headers: { "Content-Type": "multipart/form-data" },
       }).then((resp) => {
         setActivities(resp.data.projects);
@@ -35,7 +35,8 @@ const Activity = (props) => {
     } else if (props.title === "Nos Domaines") {
       axios({
         method: "get",
-        url: "http://localhost:5000/activities/Fields",
+        url : process.env.REACT_APP_BACKEND_URL +'Fields',
+
         headers: { "Content-Type": "multipart/form-data" },
       }).then((resp) => {
         setActivities(resp.data.fields);
@@ -46,7 +47,8 @@ const Activity = (props) => {
     }else if (props.title === "Nos Evénements") {
       axios({
         method: "get",
-        url: "http://localhost:5000/activities/Events",
+        url : process.env.REACT_APP_BACKEND_URL +'Events',
+
         headers: { "Content-Type": "multipart/form-data" },
       }).then((resp) => {
         setActivities(resp.data.fields);

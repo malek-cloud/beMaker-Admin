@@ -36,7 +36,7 @@ function ActModal(props) {
       fd.append("description", description.current.value);
       const response = await axios({
         method: "post",
-        url: "http://localhost:5000/activities/createMachine",
+        url : process.env.REACT_APP_BACKEND_URL + `createMachine`,
         data: fd,
         headers: { "Content-Type": "multipart/form-data" },
       });
@@ -84,7 +84,7 @@ function ActModal(props) {
 
       const response = await axios({
         method: "patch",
-        url: `http://localhost:5000/activities/editMachine/${props.id}`,
+        url : process.env.REACT_APP_BACKEND_URL + `editMachine/${props.id}`,
         data: fd,
         headers: { "Content-Type": "multipart/form-data" },
       });

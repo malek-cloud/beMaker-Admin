@@ -20,7 +20,7 @@ function FieldMachine(props) {
       fd.append("description", description.current.value);
       const response = await axios({
         method: "post",
-        url: "http://localhost:5000/activities/createField",
+        url : process.env.REACT_APP_BACKEND_URL + "createField",
         data: fd,
         headers: { "Content-Type": "multipart/form-data" },
       });
@@ -43,7 +43,7 @@ function FieldMachine(props) {
       fd.append("description", description.current.value);
       const response = await axios({
         method: "patch",
-        url: `http://localhost:5000/activities/editField/${props.id}`,
+        url : process.env.REACT_APP_BACKEND_URL + `editField/${props.id}`,
         data: fd,
         headers: { "Content-Type": "multipart/form-data" },
       });
