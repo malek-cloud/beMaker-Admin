@@ -93,7 +93,7 @@ const Activity = (props) => {
               name={activity.name}
               description={activity.description}
               activity = {act}
-              image= { props.title ==="Nos Machines" || props.title ==="Nos Events" ||  props.title ==="Nos Projets" ? `http://localhost:5000/${activity.images[0]}` : "" } 
+              image= { props.title ==="Nos Machines" || props.title ==="Nos Events" ||  props.title ==="Nos Projets" ? process.env.REACT_APP_BACKEND_URL + `${activity.images[0]}` : "" } 
             />
           ))
         )}
