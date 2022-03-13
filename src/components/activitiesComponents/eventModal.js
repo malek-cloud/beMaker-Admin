@@ -1,9 +1,21 @@
 import Modal from "react-bootstrap/Modal";
 import "./modal.css";
 import { useRef, useState, useEffect } from "react";
+import EventRadioButton from "./eventradiobutton"
 import Button from "react-bootstrap/Button";
 import axios from "axios";
+import TimePicker from "./timePicker"
 function EventModal(props) {
+  const [typeEvent, setTypeEvent] = useState("");
+  const [time, setTime] = useState("");
+  const checkType = e =>{
+    setTypeEvent(e.target.value);
+    console.log(typeEvent)
+  }
+  const getTime = (value) =>{
+    setTime(value.toString());
+    console.log(time)
+  }
   const nom = useRef();
   const description = useRef();
   const location = useRef();
@@ -35,6 +47,8 @@ function EventModal(props) {
       const fd = new FormData();
       fd.append("name", nom.current.value);
       fd.append("image", selectedFile);
+      fd.append("type", typeEvent);
+      fd.append("date", time);
       fd.append("location", location.current.value);
       fd.append("animator", animator.current.value);
       fd.append("description", description.current.value);
@@ -135,10 +149,11 @@ function EventModal(props) {
               ref={animator}
               defaultValue = {props.edit ? props.name : ""}
             />
+            <TimePicker time={getTime}/>
             <textarea
               placeholder="description de l'événement..."
               cols="50"
-              rows="8"
+              rows="5"
               ref={description}
               className="descriptionModal"
               defaultValue={props.edit ? props.description : ""}
@@ -147,7 +162,9 @@ function EventModal(props) {
              
               </textarea>
           </div>
+
           <div className="imageModalForm">
+            <EventRadioButton getValue={checkType}/>
             <input type="file" onChange={fileSelectedHandler}  />
             {preview && !props.edit && <img className="imageModal" src={preview} alt="Preview" />}
             {!preview && !props.edit && <img className="imageModal" src="/images/pick.png" alt="Pick" />}

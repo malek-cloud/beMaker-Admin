@@ -1,0 +1,43 @@
+.groupRadio {
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.label {
+    margin-right: 28px;
+    margin-bottom: 6px;
+    cursor: pointer;
+}
+
+.pointRadio {
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+input[type='radio']:after {
+    width: 20px;
+    height: 20px;
+    border-radius: 15px;
+    top: -4px;
+    left: -4px;
+    position: relative;
+    background-color: #d1d3d1;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid white;
+}
+
+input[type='radio']:checked:after {
+    width: 20px;
+    height: 20px;
+    border-radius: 15px;
+    top: -4px;
+    left: -4px;
+    position: relative;
+    background-color: #fce309;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid white;
+}

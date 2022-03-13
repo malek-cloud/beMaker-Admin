@@ -44,16 +44,16 @@ const Activity = (props) => {
         console.log(resp.data)
         setLoader(false);
       });
-    }else if (props.title === "Nos Evénements") {
+    }else if (props.title === "Nos événements") {
       axios({
         method: "get",
         url : process.env.REACT_APP_BACKEND_URL +'activities/Events',
 
         headers: { "Content-Type": "multipart/form-data" },
       }).then((resp) => {
-        setActivities(resp.data.fields);
+        setActivities(resp.data.events);
         setAct(resp.data.activity);
-        console.log(resp.data);
+        console.log(resp.data + "wini data");
         setLoader(false);
       });
     }

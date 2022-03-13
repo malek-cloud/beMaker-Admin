@@ -2,6 +2,7 @@ import "../../pages/activities/activities.css";
 import MachineModal from "./machineModal";
 import FieldModal from "./fieldModal";
 import ProjectModal from "./projectModal";
+import EventModal from "./eventModal";
 import DetailMachine from "./detailMachine";
 import axios from "axios";
 import { useState } from "react";
@@ -57,6 +58,23 @@ const GetMachine = (props) => {
         }
       } catch (err) {
         console.log("erreur mateb3athch el machine raw" + err);
+      }
+    }
+    else if  (props.activity ==="Event"){
+      try {
+        const response = await axios({
+          method: "delete",
+        url : process.env.REACT_APP_BACKEND_URL + `activities/deleteEvent/${props.id}`,
+
+          headers: { "Content-Type": "multipart/form-data" },
+        });
+        const data = response.status;
+        console.log(response.message);
+        if (data === 200) {
+          window.location.reload(true);
+        }
+      } catch (err) {
+        console.log("erreur mateb3athch el Event raw" + err);
       }
     }
     
@@ -126,6 +144,18 @@ const GetMachine = (props) => {
 
          {props.activity ==="field" ?  <FieldModal
             title={"Ajouter Un Domaine"}
+            show={modalShow}
+            click={"update"}
+            id={props.id}
+            name={props.name}
+            description={props.description}
+            image={props.image}
+            edit={"true"}
+
+            onHide={() => setModalShow(false)}
+          /> : <div></div>}
+           {props.activity ==="field" ?  <EventModal
+            title={"Ajouter Un Event"}
             show={modalShow}
             click={"update"}
             id={props.id}
