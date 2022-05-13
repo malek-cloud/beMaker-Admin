@@ -1,43 +1,8 @@
-import React, { useState, useEffect } from "react";
+
 import "./radiobutton.css";
 
 function Eventradiobutton(props) {
-  const [typeEvent, setTypeEvent] = useState("");
- 
   
-  function getformation(){
-        setTypeEvent("formation");
-        setTypeEvent("formation");
-        props.getValue(typeEvent)
-        console.log(typeEvent)
-        console.log(typeEvent)
-  }
-  function getboot(){
-      setTypeEvent("bootcamp");
-      setTypeEvent("bootcamp");
-      props.getValue(typeEvent)
-        console.log(typeEvent)
-        console.log(typeEvent)
-}function getpodcast(){
-      setTypeEvent("podcast");
-      setTypeEvent("podcast");
-      props.getValue(typeEvent)
-        console.log(typeEvent)
-        console.log(typeEvent)
-}function getevent(){
-      setTypeEvent("event");
-      props.getValue(typeEvent)
-      console.log(typeEvent)
-}function getdiscount(){
-      setTypeEvent("discount");
-      props.getValue(typeEvent)
-      console.log(typeEvent)
-}
-function getgratuit(){
-      setTypeEvent("gratuit");
-      props.getValue(typeEvent)
-      console.log(typeEvent)
-}
   return (
     <div className="groupRadio">
       <input
@@ -46,6 +11,8 @@ function getgratuit(){
         type="radio"
         value="Formation"
         id="Formation"
+        defaultChecked = {props.edit && props.type === "Formation" ? true : false}
+
         onClick={
             props.getValue
         }
@@ -61,7 +28,7 @@ function getgratuit(){
         type="radio"
         value="Gratuit"
         id="Gratuit"
-        
+        defaultChecked = {props.edit && props.type === "Gratuit" ? true : false}
         onClick={
             props.getValue
         }
@@ -76,6 +43,8 @@ function getgratuit(){
         type="radio"
         value="Bootcamp"
         id="Bootcamp"
+        defaultChecked = {props.edit && props.type === "Bootcamp" ? true : false}
+
         onClick={
             props.getValue
         }
@@ -90,6 +59,8 @@ function getgratuit(){
         className="pointRadio"
         type="radio"
         value="Podcast"
+        defaultChecked = {props.edit && props.type === "Podcast" ? true : false}
+
         id="Podcast"
         onClick={
             props.getValue
@@ -106,6 +77,8 @@ function getgratuit(){
         type="radio"
         value="Event"
         id="Event"
+        defaultChecked = {props.edit && props.type === "Event" ? true : false}
+
         onClick={
             props.getValue
         }
@@ -121,6 +94,8 @@ function getgratuit(){
         type="radio"
         value="Discount"
         id="Discount"
+        defaultChecked = {props.edit && props.type === "Discount" ? true : false}
+
         onClick={
             props.getValue
         }

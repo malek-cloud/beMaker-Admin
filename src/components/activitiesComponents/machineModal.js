@@ -2,6 +2,7 @@ import Modal from "react-bootstrap/Modal";
 import "./modal.css";
 import { useRef, useState, useEffect } from "react";
 import Button from "react-bootstrap/Button";
+import RadioMachine from "./radioMachine";
 import axios from "axios";
 function ActModal(props) {
   const nom = useRef();
@@ -9,7 +10,11 @@ function ActModal(props) {
   const [selectedFile, setSelectedFile] = useState(null);
   const [loader, setLoader] = useState(false);
   const [preview, setPreview] = useState(false);
-
+  const [serviceID, setServiceID] = useState(false);
+  const checkType = (e) => {
+    setServiceID(e.target.value);
+    console.log(serviceID);
+  };
   useEffect(() => {
     if (!selectedFile) {
       return;
@@ -33,10 +38,11 @@ function ActModal(props) {
       const fd = new FormData();
       fd.append("name", nom.current.value);
       fd.append("image", selectedFile);
+      fd.append("serviceId", serviceID);
       fd.append("description", description.current.value);
       const response = await axios({
         method: "post",
-        url : process.env.REACT_APP_BACKEND_URL + "activities/createMachine",
+        url: process.env.REACT_APP_BACKEND_URL + "activities/createMachine",
         data: fd,
         headers: { "Content-Type": "multipart/form-data" },
       });
@@ -57,34 +63,24 @@ function ActModal(props) {
     try {
       const fd = new FormData();
       if (selectedFile) {
+      fd.append("serviceId", serviceID);
         fd.append("image", selectedFile);
         fd.append("name", nom.current.value);
         fd.append("description", description.current.value);
-        console.log('fama image');
-
-      }else{
+        console.log("fama image");
+      } else {
+      fd.append("serviceId", serviceID);
         fd.append("name", nom.current.value);
         fd.append("description", description.current.value);
-        /*fd.append("image", [props.image.replace('\\','/')]);*/
-        console.log('famech image');
-        
-        
+        console.log("famech image");
       }
-      /* if(selectedFile){
-        console.log(" avec image" +selectedFile);
-      fd.append("image", selectedFile);
-      }else{
-        setSelectedFile(props.image.replace('\\','/'))
-        console.log(" sans image" + selectedFile);
-        console.log(" old image" + props.image.replace('\\','/'));
-
-      
-
-      }*/
+    
 
       const response = await axios({
         method: "patch",
-        url : process.env.REACT_APP_BACKEND_URL + `activities/editMachine/${props.id}`,
+        url:
+          process.env.REACT_APP_BACKEND_URL +
+          `activities/editMachine/${props.id}`,
         data: fd,
         headers: { "Content-Type": "multipart/form-data" },
       });
@@ -136,7 +132,13 @@ function ActModal(props) {
               defaultValue={props.edit === "true" ? props.description : ""}
             ></textarea>
           </div>
+
           <div className="imageModalForm">
+            <RadioMachine
+              serviceid={props.serviceid}
+              getValue={checkType}
+              edit={props.edit}
+            />
             <input type="file" onChange={fileSelectedHandler} />
             {preview && !props.edit && (
               <img className="imageModal" src={preview} alt="Preview" />
@@ -148,7 +150,7 @@ function ActModal(props) {
               <img className="imageModal" src={props.image} alt="edit2" />
             )}
             {preview && props.edit && (
-              <img className="imageModal" src={preview} alt="edit2" />
+              <img className="imageModal" src={preview} alt="edit" />
             )}
           </div>
         </div>

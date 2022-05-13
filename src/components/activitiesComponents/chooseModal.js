@@ -1,7 +1,9 @@
 import MachineModal from "./machineModal";
 import FieldModal from "./fieldModal";
 import ProjectModal from "./projectModal";
+import FormationModal from "./formationModal";
 import EventModal from "./eventModal";
+import ServiceModal from "./serviceModal";
 import { useState } from "react";
 
 const ChooseModal = (props) => {
@@ -26,7 +28,45 @@ const ChooseModal = (props) => {
         />
       </div>
     );
-  } else if (props.addButton === "Ajouter Domaine") {
+  }
+  else if (props.addButton === "Ajouter Formation") {
+    return (
+      <div>
+        {props.addButton === "" ? (
+          <div></div>
+        ) : (
+          <div className="addActivity" onClick={() => setModalShow(true)}>
+            {props.addButton}
+          </div>
+        )}
+        <FormationModal
+          title={"Ajouter Une Formation"}
+          show={modalShow}
+          click={"Créer"}
+          onHide={() => setModalShow(false)}
+        />
+      </div>
+    );
+  } 
+  else if (props.addButton === "Ajouter Service") {
+    return (
+      <div>
+        {props.addButton === "" ? (
+          <div></div>
+        ) : (
+          <div className="addActivity" onClick={() => setModalShow(true)}>
+            {props.addButton}
+          </div>
+        )}
+        <ServiceModal
+          title={"Ajouter Un Service"}
+          show={modalShow}
+          click={"Créer"}
+          onHide={() => setModalShow(false)}
+        />
+      </div>
+    );
+  }  else if (props.addButton === "Ajouter Domaine") {
     return (
       <div>
         <div className="addActivity" onClick={() => setModalShow(true)}>

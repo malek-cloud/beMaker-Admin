@@ -4,6 +4,8 @@ import FieldModal from "./fieldModal";
 import ProjectModal from "./projectModal";
 import EventModal from "./eventModal";
 import DetailMachine from "./detailMachine";
+import FormationModal from "./formationModal";
+import ServiceModal from "./serviceModal";
 import axios from "axios";
 import { useState } from "react";
 const GetMachine = (props) => {
@@ -60,6 +62,23 @@ const GetMachine = (props) => {
         console.log("erreur mateb3athch el machine raw" + err);
       }
     }
+    else if  (props.activity ==="Service"){
+      try {
+        const response = await axios({
+          method: "delete",
+        url : process.env.REACT_APP_BACKEND_URL + `activities/deleteService/${props.id}`,
+
+          headers: { "Content-Type": "multipart/form-data" },
+        });
+        const data = response.status;
+        console.log(response.message);
+        if (data === 200) {
+          window.location.reload(true);
+        }
+      } catch (err) {
+        console.log("erreur mateb3athch el service raw" + err);
+      }
+    }
     else if  (props.activity ==="Event"){
       try {
         const response = await axios({
@@ -77,7 +96,23 @@ const GetMachine = (props) => {
         console.log("erreur mateb3athch el Event raw" + err);
       }
     }
-    
+    else if  (props.activity ==="Formation"){
+      try {
+        const response = await axios({
+          method: "delete",
+        url : process.env.REACT_APP_BACKEND_URL + `activities/deleteFormation/${props.id}`,
+
+          headers: { "Content-Type": "multipart/form-data" },
+        });
+        const data = response.status;
+        console.log(response.message);
+        if (data === 200) {
+          window.location.reload(true);
+        }
+      } catch (err) {
+        console.log("erreur mateb3athch el formation raw" + err);
+      }
+    }
   };
 
   return (
@@ -154,10 +189,32 @@ const GetMachine = (props) => {
 
             onHide={() => setModalShow(false)}
           /> : <div></div>}
-           {props.activity ==="field" ?  <EventModal
-            title={"Ajouter Un Event"}
+             {props.activity ==="Formation" ?  <FormationModal
+            title={"Ajouter Une Formation"}
             show={modalShow}
             click={"update"}
+            id={props.id}
+            name={props.name}
+            description={props.description}
+            image={props.image}
+            date={props.date}
+            field={props.field}
+            period={props.period}
+            animator={props.animator}
+            prix={props.prix}
+            location={props.location}
+            edit={"true"}
+
+            onHide={() => setModalShow(false)}
+          /> : <div></div>}
+           {props.activity ==="Event" ?  <EventModal
+            title={"Ajouter Un Event"}
+            show={modalShow}
+            type={props.type}
+            date={props.date}
+            click={"update"}
+            animator={props.animator}
+            location={props.location}
             id={props.id}
             name={props.name}
             description={props.description}
@@ -172,6 +229,7 @@ const GetMachine = (props) => {
             show={modalShow}
             click={"update"}
             id={props.id}
+            serviceid={props.serviceid}
             name={props.name}
             description={props.description}
             image={props.image}
@@ -181,6 +239,20 @@ const GetMachine = (props) => {
           } {
             props.activity ==="projet" ?<ProjectModal
             title={"Ajouter Un Projet"}
+            show={modalShow}
+            click={"update"}
+            id={props.id}
+            name={props.name}
+            description={props.description}
+            image={props.image}
+            edit={"true"}
+
+            onHide={() => setModalShow(false)}
+          /> : <div></div>
+          }
+          {
+            props.activity ==="Service" ?<ServiceModal
+            title={"Ajouter Un Service"}
             show={modalShow}
             click={"update"}
             id={props.id}
@@ -211,6 +283,13 @@ const GetMachine = (props) => {
           name={props.name}
           description={props.description}
           image={props.image}
+          location={props.location}
+          prix={props.prix}
+          date={props.date}
+          period={props.period}
+          field={props.field}
+          type={props.type}
+          animator={props.animator}
         />
       ) : (
         <div></div>

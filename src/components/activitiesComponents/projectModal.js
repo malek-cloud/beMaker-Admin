@@ -9,25 +9,25 @@ function ProjectModal(props) {
   const [selectedFile, setSelectedFile] = useState(null);
   const [loader, setLoader] = useState(false);
   const [preview, setPreview] = useState(false);
-  
-  useEffect(()=>{
-    if(!selectedFile){
+
+  useEffect(() => {
+    if (!selectedFile) {
       return;
     }
     const fileReader = new FileReader();
-    fileReader.onload = ()=>{
+    fileReader.onload = () => {
       setPreview(fileReader.result);
-    }
-    fileReader.readAsDataURL(selectedFile)
+    };
+    fileReader.readAsDataURL(selectedFile);
   }, [selectedFile]);
-  const close =()=>{
-  props.onHide();
-  setPreview();
-  }
+  const close = () => {
+    props.onHide();
+    setPreview();
+  };
   const fileSelectedHandler = (event) => {
     setSelectedFile(event.target.files[0]);
     console.log(event.target.files[0]);
-    console.log(props.image)
+    console.log(props.image);
   };
   const submit = async () => {
     setLoader(true);
@@ -36,9 +36,9 @@ function ProjectModal(props) {
       fd.append("name", nom.current.value);
       fd.append("image", selectedFile);
       fd.append("description", description.current.value);
-      const response = await axios({ 
+      const response = await axios({
         method: "post",
-        url : process.env.REACT_APP_BACKEND_URL + `activities/createProject`,
+        url: process.env.REACT_APP_BACKEND_URL + `activities/createProject`,
 
         data: fd,
         headers: { "Content-Type": "multipart/form-data" },
@@ -64,19 +64,18 @@ function ProjectModal(props) {
         fd.append("image", selectedFile);
         fd.append("name", nom.current.value);
         fd.append("description", description.current.value);
-        console.log('fama image');
-
-      }else{
+        console.log("fama image");
+      } else {
         fd.append("name", nom.current.value);
         fd.append("description", description.current.value);
         /*fd.append("image", [props.image.replace('\\','/')]);*/
-        console.log('famech image');
-        
-        
+        console.log("famech image");
       }
       const response = await axios({
         method: "patch",
-        url : process.env.REACT_APP_BACKEND_URL + `activities/editProject/${props.id}`,
+        url:
+          process.env.REACT_APP_BACKEND_URL +
+          `activities/editProject/${props.id}`,
         data: fd,
         headers: { "Content-Type": "multipart/form-data" },
       });
@@ -116,7 +115,7 @@ function ProjectModal(props) {
               className="nameModal"
               placeholder="nom de la machine"
               ref={nom}
-              defaultValue = {props.edit==="true"  ? props.name : ""}
+              defaultValue={props.edit === "true" ? props.name : ""}
             />
             <textarea
               placeholder="description de la machine..."
@@ -124,16 +123,23 @@ function ProjectModal(props) {
               rows="8"
               ref={description}
               className="descriptionModal"
-              defaultValue={props.edit==="true" ? props.description : ""}
-
-            >
-              </textarea>
+              defaultValue={props.edit === "true" ? props.description : ""}
+            ></textarea>
           </div>
           <div className="imageModalForm">
-            <input type="file" onChange={fileSelectedHandler}   />
-            {preview && !props.edit==="true"  && <img className="imageModal" src={preview} alt="Preview" />}
-            {!preview && !props.edit==="true"  && <img className="imageModal" src="/images/pick.png" alt="Pick" />}
-            {!preview && props.edit==="true"  && <img className="imageModal" src={props.image} alt="Pick" />}
+            <input type="file" onChange={fileSelectedHandler} />
+            {preview && !props.edit && (
+              <img className="imageModal" src={preview} alt="Preview" />
+            )}
+            {!preview && !props.edit && (
+              <img className="imageModal" src="/images/pick.png" alt="Pick" />
+            )}
+            {!preview && props.edit && (
+              <img className="imageModal" src={props.image} alt="edit2" />
+            )}
+            {preview && props.edit && (
+              <img className="imageModal" src={preview} alt="edit" />
+            )}
           </div>
         </div>
       </Modal.Body>
@@ -146,7 +152,10 @@ function ProjectModal(props) {
             <span className="sr-only"></span>
           </div>
         ) : (
-          <Button className="modalButton" onClick={props.click==="update" ? editProject : submit}>
+          <Button
+            className="modalButton"
+            onClick={props.click === "update" ? editProject : submit}
+          >
             {props.click}
           </Button>
         )}

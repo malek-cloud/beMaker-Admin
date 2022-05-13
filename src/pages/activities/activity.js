@@ -13,45 +13,70 @@ const Activity = (props) => {
     if (props.title === "Nos Machines") {
       axios({
         method: "get",
-        url : process.env.REACT_APP_BACKEND_URL +'activities/Machines',
+        url: process.env.REACT_APP_BACKEND_URL + "activities/Machines",
         headers: { "Content-Type": "multipart/form-data" },
       }).then((resp) => {
         setActivities(resp.data.machines);
-        setAct(resp.data.activity)
+        setAct(resp.data.activity);
 
         setLoader(false);
       });
     } else if (props.title === "Nos Projets") {
       axios({
         method: "get",
-        url : process.env.REACT_APP_BACKEND_URL +'activities/Projects',
+        url: process.env.REACT_APP_BACKEND_URL + "activities/Projects",
         headers: { "Content-Type": "multipart/form-data" },
       }).then((resp) => {
         setActivities(resp.data.projects);
-        setAct(resp.data.activity)
+        setAct(resp.data.activity);
 
         setLoader(false);
       });
     } else if (props.title === "Nos Domaines") {
       axios({
         method: "get",
-        url : process.env.REACT_APP_BACKEND_URL +'activities/Fields',
+        url: process.env.REACT_APP_BACKEND_URL + "activities/Fields",
 
         headers: { "Content-Type": "multipart/form-data" },
       }).then((resp) => {
         setActivities(resp.data.fields);
-        setAct(resp.data.activity)
-        console.log(resp.data)
+        setAct(resp.data.activity);
+        console.log(resp.data);
+        setLoader(false);
+      });
+    } 
+    else if (props.title === "Nos Services") {
+      axios({
+        method: "get",
+        url: process.env.REACT_APP_BACKEND_URL + "activities/Services",
+
+        headers: { "Content-Type": "multipart/form-data" },
+      }).then((resp) => {
+        setActivities(resp.data.services);
+        setAct(resp.data.activity);
+        console.log(resp.data);
         setLoader(false);
       });
     }else if (props.title === "Nos événements") {
       axios({
         method: "get",
-        url : process.env.REACT_APP_BACKEND_URL +'activities/Events',
+        url: process.env.REACT_APP_BACKEND_URL + "activities/Events",
 
         headers: { "Content-Type": "multipart/form-data" },
       }).then((resp) => {
         setActivities(resp.data.events);
+        setAct(resp.data.activity);
+        console.log(resp.data + "wini data");
+        setLoader(false);
+      });
+    } else if (props.title === "Nos Formations") {
+      axios({
+        method: "get",
+        url: process.env.REACT_APP_BACKEND_URL + "activities/Formations",
+
+        headers: { "Content-Type": "multipart/form-data" },
+      }).then((resp) => {
+        setActivities(resp.data.formations);
         setAct(resp.data.activity);
         console.log(resp.data + "wini data");
         setLoader(false);
@@ -88,12 +113,28 @@ const Activity = (props) => {
         ) : (
           activities.map((activity) => (
             <GetMachine
-            key={activity._id}
+              key={activity._id}
               id={activity._id}
               name={activity.name}
               description={activity.description}
-              activity = {act}
-              image= { props.title ==="Nos Machines" || props.title ==="Nos Events" ||  props.title ==="Nos Projets" ? process.env.REACT_APP_BACKEND_URL + `${activity.images[0]}` : "" } 
+              location={activity.location}
+              prix={activity.prix }
+              animator={activity.animator}
+              date={activity.date}
+              serviceid={activity.service}
+              field={ activity.field}
+              type={activity.type }
+              period={ activity.period}
+              activity={act}
+              image={
+                props.title === "Nos Machines" ||
+                props.title === "Nos Formations" ||
+                props.title === "Nos événements" ||
+                props.title === "Nos Services" ||
+                props.title === "Nos Projets"
+                  ? process.env.REACT_APP_BACKEND_URL + `${activity.images[0]}`
+                  : ""
+              }
             />
           ))
         )}

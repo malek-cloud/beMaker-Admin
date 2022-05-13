@@ -1,12 +1,12 @@
 import "../main.css";
 import { Link } from "react-router-dom";
-const Activities = () =>{
-      return<div className="body">
+const Activities = () => {
+  return (
+    <div className="body">
       <div className="acttitle2">
-      <h1 className="title">Présentation des activités</h1>
+        <h1 className="title">Présentation des activités</h1>
 
         <Link to="/" className="goBack">
-         
           <div className="back">Retour</div>
           <div className="backIcon">
             <svg
@@ -22,16 +22,34 @@ const Activities = () =>{
           </div>
         </Link>
       </div>
-  <div className="mainListActivity" style={{margin : "6vh, 8vw"}}>
-        <Link to="/activity/workshops" className="elementActivity"> <div className="mainText">Formations</div></Link>
+      <div className="mainListActivity" style={{ margin: "6vh, 8vw" }}>
+        <Link to="/activity/workshops" className="elementActivity">
+          {" "}
+          <div className="mainText">Formations</div>
+        </Link>
+        <Link to="/activity/events" className="elementActivity">
+          {" "}
+          <div className="mainText">événements</div>
+        </Link>
+        <Link to="/activity/projects" className="elementActivity">
+          {" "}
+          <div className="mainText">Projets</div>
+        </Link>
+        <Link to="/activity/participants" className="elementActivity">
+          {" "}
+          <div className="mainText" style={{fontSize :"22px"}}>Participants aux Workshops</div>
+        </Link>
+        {/*
         <Link to="/activity/bootcamps" className="elementActivity"> <div className="mainText">Bootcamps</div></Link>
         <Link to="/activity/machines" className="elementActivity"> <div className="mainText">Machines</div></Link>
-        <Link to="/activity/events" className="elementActivity"> <div className="mainText">événements</div></Link>
-        <Link to="/activity/projects" className="elementActivity"> <div className="mainText">Projets</div></Link>
         <Link to="/activity/domaines" className="elementActivity"> <div className="mainText">Domaines</div></Link>
-        <Link to="/activity/services" className="elementActivity"> <div className="mainText">Services</div></Link>
-        <Link to="/activity/addService" className="elementActivity"> <div className="plusSigne">+</div></Link>
-        </div>
-</div>
-}
-export default Activities ;
+        <Link to="/activity/services" className="elementActivity"> <div className="mainText">Services</div></Link> */}
+        <Link to="/activity/addService" className="elementActivity">
+          {" "}
+          <div className="plusSigne">+</div>
+        </Link>
+      </div>
+    </div>
+  );
+};
+export default Activities;

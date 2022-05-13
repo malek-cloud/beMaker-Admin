@@ -1,36 +1,20 @@
 import Modal from "react-bootstrap/Modal";
 import "./modal.css";
 import { useRef, useState, useEffect } from "react";
-import EventRadioButton from "./eventradiobutton";
 import Button from "react-bootstrap/Button";
 import axios from "axios";
-import TimePicker from "./timePicker";
-function EventModal(props) {
-  const [typeEvent, setTypeEvent] = useState("");
-  const [time, setTime] = useState("");
-  const checkType = (e) => {
-    setTypeEvent(e.target.value);
-    console.log(typeEvent);
-  };
-  const getTime = (value) => {
-    setTime(value.toString());
-    console.log(time);
-  };
+function ServiceModal(props) {
   const nom = useRef();
   const description = useRef();
-  const location = useRef();
-  const animator = useRef();
   const [selectedFile, setSelectedFile] = useState(null);
   const [loader, setLoader] = useState(false);
   const [preview, setPreview] = useState(false);
 
   useEffect(() => {
     if (!selectedFile) {
-      console.log(props.image);
       return;
     }
     const fileReader = new FileReader();
-
     fileReader.onload = () => {
       setPreview(fileReader.result);
     };
@@ -43,6 +27,7 @@ function EventModal(props) {
   const fileSelectedHandler = (event) => {
     setSelectedFile(event.target.files[0]);
     console.log(event.target.files[0]);
+    console.log(props.image);
   };
   const submit = async () => {
     setLoader(true);
@@ -50,14 +35,10 @@ function EventModal(props) {
       const fd = new FormData();
       fd.append("name", nom.current.value);
       fd.append("image", selectedFile);
-      fd.append("type", typeEvent);
-      fd.append("date", time);
-      fd.append("location", location.current.value);
-      fd.append("animator", animator.current.value);
       fd.append("description", description.current.value);
       const response = await axios({
         method: "post",
-        url: process.env.REACT_APP_BACKEND_URL + "activities/createEvent",
+        url: process.env.REACT_APP_BACKEND_URL + `activities/createService`,
         data: fd,
         headers: { "Content-Type": "multipart/form-data" },
       });
@@ -66,53 +47,46 @@ function EventModal(props) {
         setLoader(false);
         props.onHide();
         window.location.reload(true);
-        setPreview();
+        setPreview(true);
       }
       console.log("hedhy el donne : " + data);
     } catch (err) {
-      console.log("erreur mateb3athch el event raw" + err);
+      console.log("erreur mateb3athch el projet raw" + err);
     }
   };
-  const editMachine = async () => {
+  const editService = async () => {
     setLoader(true);
     try {
       const fd = new FormData();
+
       if (selectedFile) {
         fd.append("image", selectedFile);
         fd.append("name", nom.current.value);
-        fd.append("date", time);
-        fd.append("type", typeEvent);
         fd.append("description", description.current.value);
-        fd.append("location", location.current.value);
-        fd.append("animator", animator.current.value);
         console.log("fama image");
       } else {
         fd.append("name", nom.current.value);
-        fd.append("date", time);
-        fd.append("type", typeEvent);
         fd.append("description", description.current.value);
-        fd.append("location", location.current.value);
-        fd.append("animator", animator.current.value);
         console.log("famech image");
       }
       const response = await axios({
-        method: "post",
+        method: "patch",
         url:
           process.env.REACT_APP_BACKEND_URL +
-          `activities/editEvent/${props.id}`,
+          `activities/editService/${props.id}`,
         data: fd,
         headers: { "Content-Type": "multipart/form-data" },
       });
       const data = response.status;
-      if (data === 204) {
+      if (data === 200) {
         setLoader(false);
         props.onHide();
         window.location.reload(true);
-        setPreview();
+        setPreview(true);
       }
       console.log("hedhy el donne : " + data);
     } catch (err) {
-      console.log("erreur mateb3athch el event raw" + err);
+      console.log("erreur mateb3athch el machine raw" + err);
     }
   };
   return (
@@ -137,51 +111,21 @@ function EventModal(props) {
             <input
               type="text"
               className="nameModal"
-              placeholder="nom de l'événement"
+              placeholder="nom du service"
               ref={nom}
-              defaultValue={props.edit ? props.name : ""}
-            />
-            <input
-              type="text"
-              className="nameModal"
-              placeholder="lieu de l'événement"
-              ref={location}
-              defaultValue={props.edit ? props.location : ""}
-            />
-            <input
-              type="text"
-              className="nameModal"
-              placeholder="nom et prenom de l'animateur"
-              ref={animator}
-              defaultValue={props.edit ? props.animator : ""}
-            />
-            <TimePicker
-              time={getTime}
-              timepicker={"Date de l'événement"}
-              edit={props.edit}
-              date={props.date}
+              defaultValue={props.edit === "true" ? props.name : ""}
             />
             <textarea
-              placeholder="description de l'événement..."
+              placeholder="description du service..."
               cols="50"
-              rows="5"
+              rows="8"
               ref={description}
               className="descriptionModal"
-              defaultValue={props.edit ? props.description : ""}
+              defaultValue={props.edit === "true" ? props.description : ""}
             ></textarea>
           </div>
-
           <div className="imageModalForm">
-            <EventRadioButton
-              getValue={checkType}
-              edit={props.edit}
-              type={props.type}
-            />
-
             <input type="file" onChange={fileSelectedHandler} />
-            {preview && props.edit && (
-              <img className="imageModal" src={preview} alt="edit" />
-            )}
             {preview && !props.edit && (
               <img className="imageModal" src={preview} alt="Preview" />
             )}
@@ -189,7 +133,10 @@ function EventModal(props) {
               <img className="imageModal" src="/images/pick.png" alt="Pick" />
             )}
             {!preview && props.edit && (
-              <img className="imageModal" src={props.image} alt="Pick2" />
+              <img className="imageModal" src={props.image} alt="edit2" />
+            )}
+            {preview && props.edit && (
+              <img className="imageModal" src={preview} alt="edit" />
             )}
           </div>
         </div>
@@ -205,7 +152,7 @@ function EventModal(props) {
         ) : (
           <Button
             className="modalButton"
-            onClick={props.click === "update" ? editMachine : submit}
+            onClick={props.click === "update" ? editService : submit}
           >
             {props.click}
           </Button>
@@ -214,5 +161,4 @@ function EventModal(props) {
     </Modal>
   );
 }
-
-export default EventModal;
+export default ServiceModal ;

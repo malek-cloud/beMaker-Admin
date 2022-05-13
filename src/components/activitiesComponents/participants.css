@@ -1,0 +1,79 @@
+.part {
+    text-align: center;
+}
+
+.participantsHeader {
+    display: inline-flex;
+    justify-content: space-between;
+    width: 85%;
+    margin-top: 5vh;
+}
+
+.participantPageTitle {
+    margin-top: 5vh;
+    font-size: 30px;
+    color: rgb(64, 7, 66);
+    font-weight: 900;
+}
+
+.workshopTitleheader {
+    display: flex;
+    margin-top: 6vh;
+    width: 83.5%;
+    justify-content: space-between;
+}
+
+.participantWorkshop {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 8vh;
+}
+
+.workshopTitle {
+    font-size: 22px;
+    font-weight: 600;
+    position: relative;
+}
+
+.downloadFile {
+    background-color: rgb(255, 217, 0);
+    padding: 4px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 19px;
+    display: inline-flex;
+    position: relative;
+}
+
+.table {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 4vh;
+}
+
+.titleTableth {
+    font-weight: 600;
+    font-size: 19px;
+    text-align: center;
+    border: 1px solid black;
+    padding: 2px 16px;
+    width: 12vw;
+    line-height: 1;
+}
+
+.titleTable {
+    font-weight: 400;
+    font-size: 14px;
+    text-align: start;
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+    border-top: none;
+    padding: 6px 6px;
+    width: 12vw;
+    line-height: 1;
+}
