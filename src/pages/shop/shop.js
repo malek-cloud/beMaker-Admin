@@ -1,12 +1,34 @@
 import "../main.css";
+import {useState} from "react"
 import { Link } from "react-router-dom";
-const Shop = () =>{
-      return<div className="body">
+const Shop = () => {
+  const [showCommand, setShowCommande] = useState(false);
+  const [number, setNumber] = useState(4);
+  return (
+    <div className="body">
       <div className="acttitle2">
-      <h1 className="title">Catégories de Nos Produits</h1>
+        <div className="comm">
+          <h1 className="title">Catégories de Nos Produits</h1>
+          <div className="notifComm" onClick={()=>{
+             setShowCommande(!showCommand);
+            setNumber(0);
+           
+          }}>
+            <div className="badge">{number}</div>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="42"
+              height="42"
+              fill="currentColor"
+              className="bi bi-bell-fill"
+              viewBox="0 0 16 16"
+            >
+              <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z" />
+            </svg>
+          </div>
+        </div>
 
         <Link to="/" className="goBack">
-         
           <div className="back">Retour</div>
           <div className="backIcon">
             <svg
@@ -22,16 +44,76 @@ const Shop = () =>{
           </div>
         </Link>
       </div>
-  <div className="mainListActivity" style={{margin : "6vh, 8vw"}}>
-        <Link to="/shop/cartes" className="elementActivity"> <div className="mainText">Cartes de Développement</div></Link>
-        <Link to="/shop/kitRobotique" className="elementActivity"> <div className="mainText">Kit Robotique</div></Link>
-        <Link to="/shop/kitIot" className="elementActivity"> <div className="mainText">Kit IOT</div></Link>
-        <Link to="/shop/kitArduino" className="elementActivity"> <div className="mainText">Kit Arduino</div></Link>
-        <Link to="/shop/clipartLaser" className="elementActivity"> <div className="mainText">Clipart Découpe Laser</div></Link>
-        <Link to="/shop/capteur" className="elementActivity"> <div className="mainText">Capteurs</div></Link>
-        <Link to="/shop/accessoires" className="elementActivity"> <div className="mainText">Acccessoires</div></Link>
-        <Link to="/shop/addCategory" className="elementActivity"> <div className="plusSigne">+</div></Link>
+      <div className="mainListActivity" style={{ margin: "6vh, 8vw" }}>
+        <Link to="/shop/cartes" className="elementActivity">
+          {" "}
+          <div className="mainText">Cartes de Développement</div>
+        </Link>
+        <Link to="/shop/kitRobotique" className="elementActivity">
+          {" "}
+          <div className="mainText">Kit Robotique</div>
+        </Link>
+        <Link to="/shop/kitIot" className="elementActivity">
+          {" "}
+          <div className="mainText">Kit IOT</div>
+        </Link>
+        <Link to="/shop/kitArduino" className="elementActivity">
+          {" "}
+          <div className="mainText">Kit Arduino</div>
+        </Link>
+        <Link to="/shop/clipartLaser" className="elementActivity">
+          {" "}
+          <div className="mainText">Clipart Découpe Laser</div>
+        </Link>
+        <Link to="/shop/capteur" className="elementActivity">
+          {" "}
+          <div className="mainText">Capteurs</div>
+        </Link>
+        <Link to="/shop/accessoires" className="elementActivity">
+          {" "}
+          <div className="mainText">Acccessoires</div>
+        </Link>
+        <Link to="/shop/addCategory" className="elementActivity">
+          {" "}
+          <div className="plusSigne">+</div>
+        </Link>
+      </div>
+      {showCommand ? <div className="listeCommande">
+        <div className="commande">
+          <div className="delapart">Commande de : Olfa hamed </div>
+        <div className="money">
+        <div className="pay">payé ✔</div>
+        <div className="price">65 DT</div>
         </div>
-</div>
-}
-export default Shop ;
+
+        </div>
+        <div className="commande">
+          <div className="delapart">Commande de : mohammed jaziri </div>
+        <div className="money">
+        <div className="pay">payé ✔</div>
+        <div className="price">103 DT</div>
+        </div>
+
+        </div>
+        <div className="commande">
+          <div className="delapart">Commande de : nawel dkhil </div>
+        <div className="money">
+        <div className="pay">non payé</div>
+        <div className="price">40 DT</div>
+        </div>
+
+        </div>
+        <div className="commande">
+          <div className="delapart">Commande de : hichem barguellil </div>
+        <div className="money">
+        <div className="pay">payé ✔</div>
+        <div className="price">86 DT</div>
+        </div>
+
+        </div>
+      </div> :  <div></div>}
+     
+    </div>
+  );
+};
+export default Shop;

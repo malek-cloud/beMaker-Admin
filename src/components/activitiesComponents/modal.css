@@ -18,6 +18,22 @@
     margin-right: 56px;
 }
 
+.errorProduct {
+    position: relative;
+    top: -30vh;
+    right: 18vw;
+    padding: 20px 30px;
+    border-radius: 8px;
+    color: white;
+    font-weight: 600;
+    font-size: 18px;
+    background-color: rgba(247, 1, 1, 0.644);
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+}
+
 .nameModal {
     margin-bottom: 16px;
 }

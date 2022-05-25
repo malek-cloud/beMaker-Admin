@@ -11,7 +11,7 @@ function TablePerWorkshop() {
   useEffect(() => {
     async function fetchData() {
       const res = await axios.get(
-        "https://bemaker-be.herokuapp.com/activities/participants"
+        "http://localhost:5000/activities/participants"
       );
       if (res.status === 200) {
         setData(res.data.participantWorkshop);

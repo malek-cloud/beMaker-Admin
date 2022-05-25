@@ -28,7 +28,17 @@ function ProductModal(props) {
   const fileSelectedHandler = (event) => {
     setSelectedFile(event.target.files[0]);
   };
+  const [error, setError] = useState("")
+
   const submit = async () => {
+
+    if ((nom.current.value || description.current.value || price.current.value) === "") {
+      setError("Données invalides!");
+      setTimeout(() => {
+        setError("")
+      }, 3000);
+      return;
+    }
     setLoader(true);
     try {
       const fd = new FormData();
@@ -48,7 +58,15 @@ function ProductModal(props) {
         setLoader(false);
         props.onHide();
         window.location.reload(true);
+       
         setPreview();
+        if ((nom.current.value || description.current.value || price.current.value) === "") {
+          setError("Produit créé avec succès!");
+          setTimeout(() => {
+            setError("")
+          }, 3000);
+          return;
+        }
       }
       console.log("hedhy el donne : " + data);
     } catch (err) {
@@ -56,6 +74,7 @@ function ProductModal(props) {
     }
   };
   const editProduct = async () => {
+    console.log("editing !")
     setLoader(true);
     try {
       console.log(props.category)
@@ -85,14 +104,14 @@ function ProductModal(props) {
         headers: { "Content-Type": "multipart/form-data" },
       });
       const data = response.status;
-      if (data === 200) {
+      if (data === 204) {
         setLoader(false);
         props.onHide();
         setPreview();
 
         window.location.reload(true);
       }
-      console.log("hedhy el donne : " + data);
+      console.log("hedhy el donne : " + response.product);
     } catch (err) {
       console.log("erreur mateb3athch el produit raw" + err);
     }
@@ -173,6 +192,8 @@ function ProductModal(props) {
             {props.click}
           </Button>
         )}
+          {error!=="" ?   <div className="errorProduct">{error}</div> :   <div></div> }
+
       </Modal.Footer>
     </Modal>
   );

@@ -4,7 +4,7 @@ const Activities = () => {
   return (
     <div className="body">
       <div className="acttitle2">
-        <h1 className="title">Présentation des activités</h1>
+        <h1 className="title">Gestion des formations et événements</h1>
 
         <Link to="/" className="goBack">
           <div className="back">Retour</div>
@@ -31,23 +31,27 @@ const Activities = () => {
           {" "}
           <div className="mainText">événements</div>
         </Link>
-        <Link to="/activity/projects" className="elementActivity">
+  {/*       <Link to="/activity/projects" className="elementActivity">
           {" "}
           <div className="mainText">Projets</div>
-        </Link>
+        </Link> */}
         <Link to="/activity/participants" className="elementActivity">
           {" "}
           <div className="mainText" style={{fontSize :"22px"}}>Participants aux Workshops</div>
+        </Link>
+        <Link to="/activity/participants" className="elementActivity">
+          {" "}
+          <div className="mainText" style={{fontSize :"22px"}}>Participants aux événements</div>
         </Link>
         {/*
         <Link to="/activity/bootcamps" className="elementActivity"> <div className="mainText">Bootcamps</div></Link>
         <Link to="/activity/machines" className="elementActivity"> <div className="mainText">Machines</div></Link>
         <Link to="/activity/domaines" className="elementActivity"> <div className="mainText">Domaines</div></Link>
         <Link to="/activity/services" className="elementActivity"> <div className="mainText">Services</div></Link> */}
-        <Link to="/activity/addService" className="elementActivity">
+       {/*  <Link to="/activity/addService" className="elementActivity">
           {" "}
           <div className="plusSigne">+</div>
-        </Link>
+        </Link> */}
       </div>
     </div>
   );
