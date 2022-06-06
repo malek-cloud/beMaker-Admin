@@ -28,7 +28,8 @@ function App() {
           <Route path="/activity/bootcamps" element={<Activity title={"Nos Bootcamps"} addButton={"Ajouter Bootcamp"}/>} /> */}
           {/*<Route path="/activity/domaines" element={<Activity title={"Nos Domaines"} addButton={"Ajouter Domaine"}/>} />
           <Route path="/activity/services" element={<Activity title={"Nos Services"} addButton={"Ajouter Service"}/>} /> */}
-          <Route path="/activity/participants" element={<Participants  />} />
+          <Route path="/activity/participants" element={<Participants inWhat={"formations"}  />} />
+          <Route path="/activity/participantsEvents" element={<Participants inWhat={"événements"}  />} />
       
       </Routes>
     </BrowserRouter>

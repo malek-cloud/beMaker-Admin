@@ -2,12 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./participants.css";
 import TablePerWorkshop from "./tablePerWorkshop";
-function Participants() {
+function Participants(props) {
   return (
     <div className="part">
       <div className="participantsHeader">
         <div className="participantPageTitle">
-          Les participants aux formations
+          Les participants aux {props.inWhat}
         </div>
         <Link to="/activity" className="goBack">
           <div className="back">Retour</div>
@@ -25,7 +25,7 @@ function Participants() {
           </div>
         </Link>
       </div>
-      <TablePerWorkshop/>
+      <TablePerWorkshop inWhat={props.inWhat}/>
     </div>
   );
 }

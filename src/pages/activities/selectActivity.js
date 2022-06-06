@@ -37,9 +37,9 @@ const Activities = () => {
         </Link> */}
         <Link to="/activity/participants" className="elementActivity">
           {" "}
-          <div className="mainText" style={{fontSize :"22px"}}>Participants aux Workshops</div>
+          <div className="mainText" style={{fontSize :"22px"}}>Participants aux formations</div>
         </Link>
-        <Link to="/activity/participants" className="elementActivity">
+        <Link to="/activity/participantsEvents" className="elementActivity">
           {" "}
           <div className="mainText" style={{fontSize :"22px"}}>Participants aux événements</div>
         </Link>

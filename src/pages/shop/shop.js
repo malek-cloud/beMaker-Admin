@@ -1,9 +1,28 @@
 import "../main.css";
-import {useState} from "react"
+import {useState, useEffect} from "react"
 import { Link } from "react-router-dom";
+import axios from 'axios'
 const Shop = () => {
+  const [number, setNumber] = useState(0);
+
+  useEffect(()=>{
+    const getOrders = async()=>{
+     try{
+      const resp = await axios.get(process.env.REACT_APP_BACKEND_URL+"shop/Orders");
+      console.log(resp.data.orders.length);
+      const saved = []
+      /* resp.data.orders.map((e) =>{
+          saved.push.e
+ 
+     }) */
+      setNumber(resp.data.orders.length)
+     }catch(err){
+       console.log(err);
+     }
+    }
+    getOrders();
+  },[])
   const [showCommand, setShowCommande] = useState(false);
-  const [number, setNumber] = useState(4);
   return (
     <div className="body">
       <div className="acttitle2">

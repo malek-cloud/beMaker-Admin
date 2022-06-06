@@ -30,7 +30,7 @@ useEffect(()=>{
       </div>
       <table className="table">
         <tbody>
-          <tr>
+          {props.inWhat ==='formations'? <tr>
             <th className="titleTableth">Participant</th>
             <th className="titleTableth">Num Téléphone</th>
             <th className="titleTableth">Email</th>
@@ -38,10 +38,17 @@ useEffect(()=>{
             <th className="titleTableth">Etablissement</th>
             <th className="titleTableth">Mode</th>
             <th className="titleTableth">Certificat</th>
-          </tr>
+          </tr> : <tr>
+            <th className="titleTableth">Participant</th>
+            <th className="titleTableth">Num Téléphone</th>
+            <th className="titleTableth">Email</th>
+            <th className="titleTableth">Profession</th>
+            <th className="titleTableth">Etablissement</th>
+            <th className="titleTableth">team Members</th>
+          </tr>}
         </tbody>
-        <tbody>
-          {props.inscriptionData.map((element) => {
+        {props.inWhat==="formations" ? <tbody>
+          {/* props.inWhat="formations" ? */props.inscriptionData.map((element) => {
           
             return (
 
@@ -55,8 +62,38 @@ useEffect(()=>{
                 <td className="titleTable">{element.certificat}</td>
               </tr>
             );
-          })}
-        </tbody>
+          })/*  : props.inscriptionData.map((element) => {
+          
+            return (
+
+              <tr>
+                <td className="titleTable">{element.participantName}</td>
+                <td className="titleTable">{element.partcipantPhone}</td>
+                <td className="titleTable">{element.partcipantEmail}</td>
+                <td className="titleTable">{element.partcipantProfession}</td>
+                <td className="titleTable">{element.partcipantCollege}</td>
+                <td className="titleTable">{element.teamMembers}</td>
+              </tr>
+            );
+          }) */ }
+        </tbody>: <tbody>
+       { props.inscriptionData.map((element) => {
+  
+          
+          return (
+
+            <tr>
+              <td className="titleTable">{element.participantName}</td>
+              <td className="titleTable">{element.partcipantPhone}</td>
+              <td className="titleTable">{element.partcipantEmail}</td>
+              <td className="titleTable">{element.partcipantProfession}</td>
+              <td className="titleTable">{element.partcipantCollege}</td>
+              <td className="titleTable">{element.teamMembers}</td>
+            </tr>
+          );
+        }) 
+          }
+        </tbody>}
       </table>
     </div>
   );

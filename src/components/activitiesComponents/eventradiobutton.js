@@ -9,17 +9,17 @@ function Eventradiobutton(props) {
         name="singleChoice"
         className="pointRadio"
         type="radio"
-        value="Formation"
-        id="Formation"
-        defaultChecked = {props.edit && props.type === "Formation" ? true : false}
+        value="Hackathon"
+        id="Hackathon"
+        defaultChecked = {props.edit && props.type === "Hackathon" ? true : false}
 
         onClick={
             props.getValue
         }
       />
 
-      <label htmlFor="Formation" className="label">
-        Formation
+      <label htmlFor="Hackathon" className="label">
+        Hackathon
       </label>
 
       <input
