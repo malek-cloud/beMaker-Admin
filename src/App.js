@@ -6,6 +6,7 @@ import Activity from "./pages/activities/activity";
 import Employee from "./pages/employee/employee";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Participants from "./components/activitiesComponents/participants";
+import DetailedOrder from "./pages/shop/detailedOrder";
 function App() {
   return (
     <BrowserRouter>
@@ -30,7 +31,10 @@ function App() {
           <Route path="/activity/services" element={<Activity title={"Nos Services"} addButton={"Ajouter Service"}/>} /> */}
           <Route path="/activity/participants" element={<Participants inWhat={"formations"}  />} />
           <Route path="/activity/participantsEvents" element={<Participants inWhat={"événements"}  />} />
-      
+          <Route
+                path={`/shop/detail_order/:id`}
+                element={<DetailedOrder />}
+              />      
       </Routes>
     </BrowserRouter>
   );

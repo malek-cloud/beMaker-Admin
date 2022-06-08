@@ -2,26 +2,41 @@ import "../main.css";
 import {useState, useEffect} from "react"
 import { Link } from "react-router-dom";
 import axios from 'axios'
+import OrdersNotif from "./ordersNotif"
 const Shop = () => {
   const [number, setNumber] = useState(0);
+  const [orders, setOrders] = useState();
 
   useEffect(()=>{
     const getOrders = async()=>{
      try{
       const resp = await axios.get(process.env.REACT_APP_BACKEND_URL+"shop/Orders");
       console.log(resp.data.orders.length);
-      const saved = []
-      /* resp.data.orders.map((e) =>{
-          saved.push.e
- 
-     }) */
-      setNumber(resp.data.orders.length)
+      setOrders(resp.data.orders)
+      let notSeen = 0;
+      resp.data.orders.map((e) =>{
+        if(e.seen === false){
+          notSeen = notSeen + 1
+        }
+       }) 
+       setNumber(notSeen)
      }catch(err){
        console.log(err);
      }
     }
     getOrders();
   },[])
+    const showOrders = ()=>{
+      setShowCommande(!showCommand);
+      if(orders){
+        orders.map(async (e) =>{
+          await axios.post(process.env.REACT_APP_BACKEND_URL+`shop/editOrder/${e._id}`, {
+            seen : true
+          }); 
+         }) 
+         setNumber(0) 
+      }
+    }
   const [showCommand, setShowCommande] = useState(false);
   return (
     <div className="body">
@@ -29,9 +44,7 @@ const Shop = () => {
         <div className="comm">
           <h1 className="title">Catégories de Nos Produits</h1>
           <div className="notifComm" onClick={()=>{
-             setShowCommande(!showCommand);
-            setNumber(0);
-           
+            showOrders();
           }}>
             <div className="badge">{number}</div>
             <svg
@@ -97,40 +110,12 @@ const Shop = () => {
           <div className="plusSigne">+</div>
         </Link>
       </div>
-      {showCommand ? <div className="listeCommande">
-        <div className="commande">
-          <div className="delapart">Commande de : Olfa hamed </div>
-        <div className="money">
-        <div className="pay">payé ✔</div>
-        <div className="price">65 DT</div>
-        </div>
-
-        </div>
-        <div className="commande">
-          <div className="delapart">Commande de : mohammed jaziri </div>
-        <div className="money">
-        <div className="pay">payé ✔</div>
-        <div className="price">103 DT</div>
-        </div>
-
-        </div>
-        <div className="commande">
-          <div className="delapart">Commande de : nawel dkhil </div>
-        <div className="money">
-        <div className="pay">non payé</div>
-        <div className="price">40 DT</div>
-        </div>
-
-        </div>
-        <div className="commande">
-          <div className="delapart">Commande de : hichem barguellil </div>
-        <div className="money">
-        <div className="pay">payé ✔</div>
-        <div className="price">86 DT</div>
-        </div>
-
-        </div>
-      </div> :  <div></div>}
+      
+      {showCommand ? 
+       <div className="listeCommande">
+         { orders && orders.map((e)=>{return <OrdersNotif order={e} key={e._id} /> })}
+          </div>
+       : <div></div>}
      
     </div>
   );

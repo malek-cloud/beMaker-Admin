@@ -1,0 +1,14 @@
+.headlineOrder {
+    display: flex;
+}
+
+.deliveryStatus {
+    padding: 0px 12px;
+    font-size: 15px;
+    background-color: rgba(234, 157, 57, 0.709);
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+}
