@@ -11,7 +11,6 @@ const Shop = () => {
     const getOrders = async()=>{
      try{
       const resp = await axios.get(process.env.REACT_APP_BACKEND_URL+"shop/Orders");
-      console.log(resp.data.orders.length);
       setOrders(resp.data.orders)
       let notSeen = 0;
       resp.data.orders.map((e) =>{
@@ -113,7 +112,7 @@ const Shop = () => {
       
       {showCommand ? 
        <div className="listeCommande">
-         { orders && orders.map((e)=>{return <OrdersNotif order={e} key={e._id} /> })}
+         { orders && orders.map((e)=>{return <OrdersNotif  order={e} key={e._id} /> })}
           </div>
        : <div></div>}
      

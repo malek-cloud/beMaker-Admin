@@ -2,13 +2,274 @@
     display: flex;
 }
 
+
+/* partie details de commande taille pc */
+
+.gestionCommande {
+    font-size: 30px;
+    color: rgb(64, 7, 66);
+    font-weight: 600;
+    text-align: center;
+    margin-top: 4%;
+}
+
+.orderPage {
+    display: flex;
+    justify-content: space-between;
+    margin: -20px 100px 20px 100px;
+}
+
+.currentManagedOrderBlock {
+    width: 60%;
+    height: fit-content;
+    padding: 20px;
+    border: 1px solid;
+    border-radius: 12px;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    -ms-border-radius: 12px;
+    -o-border-radius: 12px;
+}
+
+.headlineOrder {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
 .deliveryStatus {
-    padding: 0px 12px;
-    font-size: 15px;
+    padding: 6px 20px;
+    font-size: 21px;
     background-color: rgba(234, 157, 57, 0.709);
     border-radius: 8px;
     -webkit-border-radius: 8px;
     -moz-border-radius: 8px;
     -ms-border-radius: 8px;
     -o-border-radius: 8px;
+}
+
+.OrderId {
+    font-size: 18px;
+    color: rgb(64, 7, 66);
+}
+
+.amount {
+    font-size: 18px;
+    padding-bottom: 2px;
+    border-bottom: 1px solid gainsboro;
+    width: fit-content;
+    margin-top: 6px;
+}
+
+.userInfoBlock {
+    margin-top: 10px;
+    border: 1px solid;
+    padding: 8px;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    font-size: 18px;
+}
+
+.userAndProduct {
+    display: flex;
+    justify-content: space-between;
+}
+
+.orderFrom b {
+    color: rgb(64, 7, 66);
+}
+
+.achatsBlock {
+    margin-right: 20px;
+    height: fit-content;
+}
+
+.listProductsOrders {
+    padding: 8px;
+    border: 1px solid;
+    border-radius: 8px;
+}
+
+.refAchats {
+    font-size: 20px;
+    color: rgb(64, 7, 66);
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.productName {
+    color: rgb(64, 7, 66);
+    margin-right: 8px;
+}
+
+.oneOrderedProduct {
+    font-size: 18px;
+    display: flex;
+    border-bottom: 1px solid;
+    margin-bottom: 10px;
+}
+
+.payingBlock {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+    font-size: 20px;
+    margin-top: 16px;
+}
+
+.paidOrnot {
+    margin-left: 12px;
+    margin-right: 12px;
+    font-weight: 600;
+    color: rgb(64, 7, 66);
+}
+
+.quantityandPrice {
+    display: flex;
+    justify-content: space-around;
+}
+
+.productImageOrder {
+    height: 60px;
+    width: 60px;
+    margin-right: 10px;
+    margin-left: 2px;
+    border-radius: 20%;
+    margin-bottom: 5px;
+    -webkit-border-radius: 20%;
+    -moz-border-radius: 20%;
+    -ms-border-radius: 20%;
+    -o-border-radius: 20%;
+}
+
+.orderAccepted {
+    background-color: rgba(72, 161, 75, 0.666);
+    padding: 4px 12px;
+    cursor: not-allowed;
+    width: fit-content;
+}
+
+.notAcceptedYet {
+    cursor: pointer;
+    background-color: rgb(255, 205, 24);
+    padding: 4px 12px;
+    width: fit-content;
+    transition: 0.4s;
+    -webkit-transition: 0.4s;
+    -moz-transition: 0.4s;
+    -ms-transition: 0.4s;
+    -o-transition: 0.4s;
+}
+
+.notAcceptedYet:hover {
+    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+}
+
+.acceptingSpinner {
+    position: relative;
+    bottom: 30px;
+    left: 50px;
+    margin-top: 20px;
+}
+
+.orderManagement {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.selectDeliverytStatus {
+    margin-left: 10px;
+    color: rgb(64, 7, 66);
+    font-size: 16px;
+    background-color: rgba(72, 161, 75, 0.666);
+    font-weight: bold;
+    text-align: center;
+}
+
+.payCash {
+    position: relative;
+    top: 9px;
+    cursor: pointer;
+}
+
+.backButtonOrder {
+    position: relative;
+    top: -65px;
+    text-align: end;
+    right: 110px;
+}
+
+
+/* partie all orders de commande taille pc */
+
+.allordersPart {
+    width: 30%;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.orderSample {
+    margin: 8px;
+    background-color: rgba(230, 230, 230, 0.552);
+    padding: 8px;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 8px;
+    font-size: 18px;
+    transition: 0.4s;
+    color: black;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    cursor: pointer;
+    -webkit-transition: 0.4s;
+    -moz-transition: 0.4s;
+    -ms-transition: 0.4s;
+    -o-transition: 0.4s;
+}
+
+.orderSample:hover {
+    color: black;
+    text-decoration: none;
+    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+}
+
+.acceptingQuestionBlock {
+    display: flex;
+    justify-content: space-around;
+    text-decoration: none;
+}
+
+.acceptingQuestion {
+    margin-right: 20px;
+}
+
+.nameandpriceOrder {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.acceptingAnswer {
+    background-color: rgba(72, 161, 75, 0.666);
+    padding: 0px 10px;
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
 }

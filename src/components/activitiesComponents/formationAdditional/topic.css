@@ -1,0 +1,37 @@
+.champsC {
+    width: 300px;
+}
+
+.topic {
+    margin-bottom: 20px;
+    margin-top: 8px;
+    display: flex;
+}
+
+.ajoutChamps {
+    border-radius: 4px;
+    height: 28px;
+    width: 160px;
+    background-color: rgb(116, 26, 119);
+    font-size: 18px;
+    color: white;
+    padding: 0 20px;
+    border: none;
+    margin-left: 14px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+}
+
+.deleteChamps {
+    padding: 0px 10px;
+    margin-left: 10px;
+    font-size: 20px;
+}
+
+.inlineAdding {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}

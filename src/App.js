@@ -7,11 +7,13 @@ import Employee from "./pages/employee/employee";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Participants from "./components/activitiesComponents/participants";
 import DetailedOrder from "./pages/shop/detailedOrder";
+import Login from "./pages/login";
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-          <Route path="/" element={<Main/>} />
+      <Route path="/"  element={JSON.parse(localStorage.getItem("employee")) === null ? <Login/> : <Main/>}   />
+          {/* <Route path="/accueil" element={<Main/>} /> */}
           <Route path="/shop" element={<Shop/>} />
           <Route path="/activity" element={<SelectActivity/>} />
           <Route path="/hire" element={<Employee/>} />

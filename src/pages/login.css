@@ -1,0 +1,71 @@
+.loginForm {
+    background-color: rgb(52, 5, 58);
+    height: 100vh;
+    width: 100vw;
+    text-align: center;
+    margin: 0%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.loginSpace {
+    background-color: white;
+    height: fit-content;
+    width: fit-content;
+    padding: 40px;
+    display: flex;
+    flex-direction: row-reverse;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+.logoBackoffice {
+    height: 200px;
+    margin-right: 50px;
+    margin-top: 20px;
+}
+
+.accueil {
+    color: white;
+    margin-bottom: 70px;
+    font-size: 35px;
+}
+
+.accueil b {
+    color: rgb(255, 217, 0);
+}
+
+.loginData {
+    display: flex;
+    flex-direction: column;
+}
+
+.connect {
+    font-size: 25px;
+    margin-bottom: 30px;
+    color: rgb(52, 5, 58);
+    font-weight: 600;
+}
+
+.logininput {
+    margin-bottom: 15px;
+    width: 220px;
+}
+
+.connectButton {
+    margin-bottom: 10px;
+    color: rgb(255, 242, 0);
+    background-color: rgb(52, 5, 58);
+    border-radius: 10px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.forget {
+    text-decoration: underline;
+}

@@ -44,8 +44,7 @@ const Activity = (props) => {
         console.log(resp.data);
         setLoader(false);
       });
-    } 
-    else if (props.title === "Nos Services") {
+    } else if (props.title === "Nos Services") {
       axios({
         method: "get",
         url: process.env.REACT_APP_BACKEND_URL + "activities/Services",
