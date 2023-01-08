@@ -117,11 +117,14 @@ const Activity = (props) => {
               name={activity.name}
               description={activity.description}
               location={activity.location}
+              difficulty={activity.difficulty}
+              objectifs={activity.objectifs}
               prix={activity.prix }
               animator={activity.animator}
               date={activity.date}
               serviceid={activity.service}
               field={ activity.field}
+              age={ activity.age}
               type={activity.type }
               period={ activity.period}
               activity={act}

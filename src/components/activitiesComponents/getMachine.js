@@ -197,12 +197,12 @@ const GetMachine = (props) => {
             name={props.name}
             description={props.description}
             image={props.image}
-            date={props.date}
+            difficulty={props.difficulty}
             field={props.field}
             period={props.period}
-            animator={props.animator}
+            age={props.age}
             prix={props.prix}
-            location={props.location}
+            objectifs={props.objectifs}
             edit={"true"}
 
             onHide={() => setModalShow(false)}

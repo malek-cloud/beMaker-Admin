@@ -8,157 +8,182 @@ function RadioROBOTIQUE(props) {
         name="singleChoice"
         className="pointRadio"
         type="radio"
-        value="ROBOTIQUE"
-        id="ROBOTIQUE"
+        value="Robotique"
+        id="Robotique"
         onClick={
             props.getValue
         }
-        defaultChecked = {props.edit && props.field === "ROBOTIQUE" ? true : false}
+        defaultChecked = {props.edit && props.field === "Robotique" ? true : false}
       />
-      <label htmlFor="ROBOTIQUE" className="label">
-        ROBOTIQUE
+      <label htmlFor="Robotique" className="label">
+      Robotique
       </label>
 
       <input
         name="singleChoice"
         className="pointRadio"
         type="radio"
-        value="DEV MOBILE"
-        id="DEV MOBILE"
-        defaultChecked = {props.edit && props.field === "DEV MOBILE" ? true : false}
+        value="Programmation"
+        id="Programmation"
+        defaultChecked = {props.edit && props.field === "Programmation" ? true : false}
         
         onClick={
             props.getValue
         }
       />
-      <label htmlFor="DEV MOBILE" className="label">
-       DEV MOBILE
+      <label htmlFor="Programmation" className="label">
+      Programmation
       </label>
       <input
         name="singleChoice"
         className="pointRadio"
         type="radio"
-        value="DevOps"
-        id="DevOps"
-        defaultChecked = {props.edit && props.field === "DevOps" ? true : false}
+        value="Logiciels"
+        id="Logiciels"
+        defaultChecked = {props.edit && props.field === "Logiciels" ? true : false}
+        onClick={
+            props.getValue
+        }
+      />
+      <label className="label" htmlFor="Logiciels">
+      Logiciels
+      </label>
+      
+      <input
+        name="singleChoice"
+        className="pointRadio"
+        type="radio"
+        value="Administration Systèmes"
+        id="Administration Systèmes"
+        defaultChecked = {props.edit && props.field === "Administration Systèmes" ? true : false}
         
         onClick={
             props.getValue
         }
       />
-      <label htmlFor="DevOps" className="label">
-       DevOps
+      <label htmlFor="Administration Systèmes" className="label">
+      Administration Systèmes
       </label>
       <input
         name="singleChoice"
         className="pointRadio"
         type="radio"
-        value="Mecanique"
-        id="Mecanique"
-        defaultChecked = {props.edit && props.field === "Mecanique" ? true : false}
+        value="Conception Mécanique"
+        id="Conception Mécanique"
+        defaultChecked = {props.edit && props.field === "Conception Mécanique" ? true : false}
         
         onClick={
             props.getValue
         }
       />
-      <label htmlFor="Mecanique" className="label">
-       Mecanique
+      <label htmlFor="Conception Mécanique" className="label">
+      Conception Mécanique
       </label>
       <input
         name="singleChoice"
         className="pointRadio"
         type="radio"
-        value="Eléctronique"
-        id="Eléctronique"
-        defaultChecked = {props.edit && props.field === "Eléctronique" ? true : false}
+        value="Conception Électronique"
+        id="Conception Électronique"
+        defaultChecked = {props.edit && props.field === "Conception Électronique" ? true : false}
         
         onClick={
             props.getValue
         }
       />
-      <label htmlFor="Eléctronique" className="label">
-       Eléctronique
+      <label htmlFor="Conception Électronique" className="label">
+      Conception Électronique
       </label>
       <input
         name="singleChoice"
         className="pointRadio"
         type="radio"
-        value=" DEV WEB"
-        id=" DEV WEB"
-        defaultChecked = {props.edit && props.field === "DEV WEB" ? true : false}
+        value="Intelligence Artificielle "
+        id="Intelligence Artificielle"
+        defaultChecked = {props.edit && props.field === "Intelligence Artificielle" ? true : false}
 
         onClick={
             props.getValue
         }
       />
-
-      <label className="label" htmlFor=" DEV WEB">
-        DEV WEB
+      <label className="label" htmlFor="Intelligence Artificielle">
+      Intelligence Artificielle
       </label>
 
       <input
         name="singleChoice"
         className="pointRadio"
         type="radio"
-        value="AI"
-        id="AI"
-        defaultChecked = {props.edit && props.field === "AI" ? true : false}
+        value="Fabrication Numérique"
+        id="Fabrication Numérique"
+        defaultChecked = {props.edit && props.field === "Fabrication Numérique" ? true : false}
         onClick={
             props.getValue
         }
       />
-
       <label htmlFor="Podcast" className="label">
-        AI
-      </label>
-
-      <input
-        name="singleChoice"
-        className="pointRadio"
-        type="radio"
-        value="IOT"
-        id="IOT"
-        defaultChecked = {props.edit && props.field === "IOT" ? true : false}
-
-        onClick={
-            props.getValue
-        }
-      />
-
-      <label className="label" htmlFor="IOT">
-        IOT
+        Fabrication Numérique
       </label>
       <input
         name="singleChoice"
         className="pointRadio"
         type="radio"
-        value="Space Tech"
-        id="Space Tech"
-        defaultChecked = {props.edit && props.field === "Space Tech" ? true : false}
-
+        value="Sytémes embarqués"
+        id="Sytémes embarqués"
+        defaultChecked = {props.edit && props.field === "Sytémes embarqués" ? true : false}
         onClick={
             props.getValue
         }
       />
-
-      <label className="label" htmlFor="Space Tech">
-        Space Tech
+      <label className="label" htmlFor="Sytémes embarqués">
+      Sytémes embarqués
       </label>
       <input
         name="singleChoice"
         className="pointRadio"
         type="radio"
-        value="3D Printing"
-        id="3D Printing"
-        defaultChecked = {props.edit && props.field === "3D Printing" ? true : false}
+        value="Électricité industrielle et automatisme"
+        id="Électricité industrielle et automatisme"
+        defaultChecked = {props.edit && props.field === "Électricité industrielle et automatisme" ? true : false}
+
+        onClick={
+            props.getValue
+        }
+      />
+      <label className="label" htmlFor="Électricité industrielle et automatisme">
+      Électricité industrielle et automatisme
+      </label>
+      <input
+        name="singleChoice"
+        className="pointRadio"
+        type="radio"
+        value="IoT"
+        id="IoT"
+        defaultChecked = {props.edit && props.field === "IoT" ? true : false}
+
+        onClick={
+            props.getValue
+        }
+      />
+      <label className="label" htmlFor="IoT">
+        IoT
+      </label>
+      <input
+        name="singleChoice"
+        className="pointRadio"
+        type="radio"
+        value="Aéronautique"
+        id="Aéronautique"
+        defaultChecked = {props.edit && props.field === "Aéronautique" ? true : false}
         onClick={
             props.getValue
         }
       />
 
-      <label className="label" htmlFor="3D Printing">
-        3D Printing
+      <label className="label" htmlFor="Aéronautique">
+        Aéronautique
       </label>
+      
     </div>
   );
 }
