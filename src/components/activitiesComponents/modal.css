@@ -43,6 +43,21 @@
     flex-direction: column;
 }
 
+.pdfModal {
+    margin-top: 16px;
+    width: 260px;
+    height: 60px;
+    padding: 10px 20px;
+    border-color: brown;
+    color: white;
+    font-weight: 500;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+}
+
 .imageModal {
     margin-top: 16px;
     height: 198px;

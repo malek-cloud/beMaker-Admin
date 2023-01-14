@@ -119,6 +119,8 @@ const Activity = (props) => {
               location={activity.location}
               difficulty={activity.difficulty}
               objectifs={activity.objectifs}
+              prerequis={activity.prerequis}
+              program={activity.program}
               prix={activity.prix }
               animator={activity.animator}
               date={activity.date}

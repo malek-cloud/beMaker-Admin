@@ -202,6 +202,8 @@ const GetMachine = (props) => {
             period={props.period}
             age={props.age}
             prix={props.prix}
+            prerequis={props.prerequis}
+            program={props.program}
             objectifs={props.objectifs}
             edit={"true"}
 
