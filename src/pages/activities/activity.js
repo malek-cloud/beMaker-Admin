@@ -136,7 +136,7 @@ const Activity = (props) => {
                 props.title === "Nos événements" ||
                 props.title === "Nos Services" ||
                 props.title === "Nos Projets"
-                  ? process.env.REACT_APP_BACKEND_URL + `${activity.images[0]}`
+                  ? activity.images.url
                   : ""
               }
             />
