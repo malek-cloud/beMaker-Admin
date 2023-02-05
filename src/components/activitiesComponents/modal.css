@@ -43,6 +43,18 @@
     flex-direction: column;
 }
 
+.importanceCheckBox {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.checkBox {
+    margin-right: 8px;
+    width: 20px;
+    height: 20px;
+    margin-top: 3px;
+}
+
 .pdfModal {
     margin-top: 16px;
     width: 260px;

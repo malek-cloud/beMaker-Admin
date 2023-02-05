@@ -202,9 +202,12 @@ const GetMachine = (props) => {
             period={props.period}
             age={props.age}
             prix={props.prix}
+            prixParGroupeOnsite={props.prixParGroupeOnsite}
+            prixParGroupeOnline={props.prixParGroupeOnline}
             prerequis={props.prerequis}
             program={props.program}
             objectifs={props.objectifs}
+            date={props.date}
             edit={"true"}
 
             onHide={() => setModalShow(false)}

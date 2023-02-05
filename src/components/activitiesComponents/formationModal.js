@@ -9,20 +9,25 @@ function FormationModal(props) {
   const nom = useRef();
   const age = useRef();
   const difficulty = useRef();
+  const prixParGroupeOnsite = useRef();
+  const prixParGroupeOnline = useRef();
   const program = useRef();
   const objectifs = useRef();
   const prerequis = useRef();
   const description = useRef();
+  const date = useRef();
   const prix = useRef();
   const period = useRef();
   const [selectedFile, setSelectedFile] = useState(null);
   const [loader, setLoader] = useState(false);
   const [preview, setPreview] = useState(false);
- 
+  const [isImportant, setIsImportant] = useState(props.date);
   const [typeFormation, setTypeFormation] = useState("");
   const [diff, setDiff] = useState(props.edit ? props.difficulty : "Débutant");
 
-  
+  const handleChangeImportance = (event) => {
+    setIsImportant(event.target.checked);
+  };
   const checkType = (e) => {
     setTypeFormation(e.target.value);
     console.log(typeFormation);
@@ -53,6 +58,7 @@ function FormationModal(props) {
       const fd = new FormData();
       fd.append("name", nom.current.value);
       fd.append("prix", prix.current.value);
+      fd.append("date", date.current.value);
       fd.append("age", age.current.value);
       fd.append("period", period.current.value);
       fd.append("objectifs", objectifs.current.value);
@@ -62,6 +68,8 @@ function FormationModal(props) {
       fd.append("image", selectedFile);
       fd.append("program", program.current.value);
       fd.append("description", description.current.value);
+      fd.append("prixParGroupeOnline", prixParGroupeOnline.current.value);
+      fd.append("prixParGroupeOnsite", prixParGroupeOnsite.current.value);
       const response = await axios({
         method: "post",
         url: process.env.REACT_APP_BACKEND_URL + `activities/createFormation`,
@@ -91,15 +99,19 @@ function FormationModal(props) {
         fd.append("objectifs", objectifs.current.value);
         fd.append("program", program.current.value);
         fd.append("age", age.current.value);
+        fd.append("date", date.current.value);
         fd.append("prix", prix.current.value);
         fd.append("period", period.current.value);
         fd.append("field", typeFormation);
         fd.append("image", selectedFile);
         fd.append("description", description.current.value);
+        fd.append("prixParGroupeOnsite", prixParGroupeOnsite.current.value);
+        fd.append("prixParGroupeOnline", prixParGroupeOnline.current.value);
         console.log("fama image");
       } else {
         fd.append("difficulty", difficulty.current.value);
         fd.append("age", age.current.value);
+        fd.append("date", date.current.value);
         fd.append("name", nom.current.value);
         fd.append("prerequis", prerequis.current.value);
         fd.append("prix", prix.current.value);
@@ -108,6 +120,8 @@ function FormationModal(props) {
         fd.append("field", typeFormation);
         fd.append("description", description.current.value);
         fd.append("program", program.current.value);
+        fd.append("prixParGroupeOnsite", prixParGroupeOnsite.current.value);
+        fd.append("prixParGroupeOnline", prixParGroupeOnline.current.value);
         console.log("famech image");
       }
       const response = await axios({
@@ -180,7 +194,28 @@ function FormationModal(props) {
               ref={age}
               defaultValue={props.edit ? props.age : ""}
             />
-             <textarea
+            <input
+              type="text"
+              className="nameModal"
+              placeholder="prix de formation"
+              ref={prix}
+              defaultValue={props.edit ? props.prix : ""}
+            />
+            <input
+              type="text"
+              className="nameModal"
+              placeholder="durée de la formation"
+              ref={period}
+              defaultValue={props.edit ? props.period : ""}
+            />
+            <input
+              type="text"
+              className="nameModal"
+              placeholder="Lien téléchargable du Programme de la formation"
+              ref={program}
+              defaultValue={props.edit ? props.program : ""}
+            />
+            <textarea
               style={{ marginTop: "0px", marginBottom: "20px" }}
               placeholder="Les objectifs de la formation : Exemple : Objectif 1 / Objectif 2 / Objectif 3...."
               cols="50"
@@ -200,29 +235,47 @@ function FormationModal(props) {
             ></textarea>
           </div>
           <div className="imageModalForm">
-
-
+            <div className="importanceCheckBox">
             <input
-              type="text"
-              className="nameModal"
-              placeholder="prix de formation"
-              ref={prix}
-              defaultValue={props.edit ? props.prix : ""}
+            className="checkBox"
+            id="important"
+              type="checkbox"
+              checked={isImportant}
+              onChange={handleChangeImportance}
             />
-            <input
-              type="text"
-              className="nameModal"
-              placeholder="durée de la formation"
-              ref={period}
-              defaultValue={props.edit ? props.period : ""}
-            />
-             <input
-              type="text"
-              className="nameModal"
-              placeholder="Lien téléchargable du Programme de la formation"
-              ref={program}
-              defaultValue={props.edit ? props.program : ""}
-            />
+            <label htmlFor="important"> Cocher si cette formation posséde une DATE</label>
+            </div>
+            {isImportant ? (
+              <input
+                type="text"
+                className="nameModal"
+                placeholder="Date de la formation"
+                ref={date}
+                defaultValue={props.edit ? props.date : ""}
+              />
+            ) : (
+              <div></div>
+            )}
+
+            <textarea
+              style={{ marginTop: "0px", marginBottom: "20px" }}
+              placeholder="Prix de formation présentiel par groupe, Exemple : Groupe entre x et y : 25DT / Groupe de z : 50DT / Groupe..."
+              cols="50"
+              rows="4"
+              ref={prixParGroupeOnsite}
+              className="descriptionModal"
+              defaultValue={props.edit ? props.prixParGroupeOnsite : ""}
+            ></textarea>
+            <textarea
+              style={{ marginTop: "0px", marginBottom: "20px" }}
+              placeholder="Prix de formation en ligne par groupe, Exemple : Groupe entre x et y : 25DT / Groupe de z : 50DT / Groupe..."
+              cols="50"
+              rows="4"
+              ref={prixParGroupeOnline}
+              className="descriptionModal"
+              defaultValue={props.edit ? props.prixParGroupeOnline : ""}
+            ></textarea>
+
             <textarea
               style={{ marginTop: "0px", marginBottom: "20px" }}
               placeholder="description de la formation..."
@@ -247,8 +300,6 @@ function FormationModal(props) {
               <img className="imageModal" src={props.image} alt="Pick" />
             )}
 
-
-
             {/* <div>Programme de la formation</div>
             <input type="file" onChange={pdfSelectedHandler} />
             {selectedPDF && !props.edit && (
@@ -263,12 +314,7 @@ function FormationModal(props) {
             {!selectedPDF && props.edit && (
               <img className="" src={props.program} alt="Pick PDF" />
             )} */}
-
           </div>
-
-
-
-          
         </div>
       </Modal.Body>
       <Modal.Footer>

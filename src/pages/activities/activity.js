@@ -77,7 +77,7 @@ const Activity = (props) => {
       }).then((resp) => {
         setActivities(resp.data.formations);
         setAct(resp.data.activity);
-        console.log(resp.data + "wini data");
+        console.log(resp.data+ "wini data");
         setLoader(false);
       });
     }
@@ -120,6 +120,8 @@ const Activity = (props) => {
               difficulty={activity.difficulty}
               objectifs={activity.objectifs}
               prerequis={activity.prerequis}
+              prixParGroupeOnline={activity.prixParGroupeOnline}
+              prixParGroupeOnsite={activity.prixParGroupeOnsite}
               program={activity.program}
               prix={activity.prix }
               animator={activity.animator}
