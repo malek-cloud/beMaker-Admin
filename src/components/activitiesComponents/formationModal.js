@@ -21,9 +21,10 @@ function FormationModal(props) {
   const [selectedFile, setSelectedFile] = useState(null);
   const [loader, setLoader] = useState(false);
   const [preview, setPreview] = useState(false);
-  const [isImportant, setIsImportant] = useState(props.date);
+  const [isImportant, setIsImportant] = useState(props.date && props.date!==" " ? true : false );
   const [typeFormation, setTypeFormation] = useState("");
   const [diff, setDiff] = useState(props.edit ? props.difficulty : "Débutant");
+          
 
   const handleChangeImportance = (event) => {
     setIsImportant(event.target.checked);
@@ -52,13 +53,14 @@ function FormationModal(props) {
     setSelectedFile(event.target.files[0]);
     console.log(props.image);
   };
+
   const submit = async () => {
     setLoader(true);
     try {
       const fd = new FormData();
       fd.append("name", nom.current.value);
       fd.append("prix", prix.current.value);
-      fd.append("date", date.current.value);
+      fd.append("date", date.current.value );
       fd.append("age", age.current.value);
       fd.append("period", period.current.value);
       fd.append("objectifs", objectifs.current.value);
@@ -99,7 +101,7 @@ function FormationModal(props) {
         fd.append("objectifs", objectifs.current.value);
         fd.append("program", program.current.value);
         fd.append("age", age.current.value);
-        fd.append("date", date.current.value);
+        fd.append("date", date.current.value );
         fd.append("prix", prix.current.value);
         fd.append("period", period.current.value);
         fd.append("field", typeFormation);
@@ -251,7 +253,7 @@ function FormationModal(props) {
                 className="nameModal"
                 placeholder="Date de la formation"
                 ref={date}
-                defaultValue={props.edit ? props.date : ""}
+                defaultValue={props.edit && props.date && props.date!==" "  ? props.date : ""}
               />
             ) : (
               <div></div>
