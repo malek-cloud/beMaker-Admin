@@ -9,6 +9,7 @@ function FormationModal(props) {
   const nom = useRef();
   const age = useRef();
   const difficulty = useRef();
+  const formulaireParticipation =useRef();
   const prixParGroupeOnsite = useRef();
   const prixParGroupeOnline = useRef();
   const program = useRef();
@@ -70,8 +71,11 @@ function FormationModal(props) {
       fd.append("image", selectedFile);
       fd.append("program", program.current.value);
       fd.append("description", description.current.value);
+      fd.append("formulaireParticipation", formulaireParticipation.current.value);
       fd.append("prixParGroupeOnline", prixParGroupeOnline.current.value);
       fd.append("prixParGroupeOnsite", prixParGroupeOnsite.current.value);
+      
+      console.log("hedha el formulaireParticipation " + formulaireParticipation.current.value)
       const response = await axios({
         method: "post",
         url: process.env.REACT_APP_BACKEND_URL + `activities/createFormation`,
@@ -109,6 +113,7 @@ function FormationModal(props) {
         fd.append("description", description.current.value);
         fd.append("prixParGroupeOnsite", prixParGroupeOnsite.current.value);
         fd.append("prixParGroupeOnline", prixParGroupeOnline.current.value);
+        fd.append("formulaireParticipation", formulaireParticipation.current.value);
         console.log("fama image");
       } else {
         fd.append("difficulty", difficulty.current.value);
@@ -124,6 +129,7 @@ function FormationModal(props) {
         fd.append("program", program.current.value);
         fd.append("prixParGroupeOnsite", prixParGroupeOnsite.current.value);
         fd.append("prixParGroupeOnline", prixParGroupeOnline.current.value);
+        fd.append("formulaireParticipation", formulaireParticipation.current.value);
         console.log("famech image");
       }
       const response = await axios({
@@ -287,6 +293,13 @@ function FormationModal(props) {
               className="descriptionModal"
               defaultValue={props.edit ? props.description : ""}
             ></textarea>
+              <input
+              type="text"
+              className="nameModal"
+              placeholder="Lien de formulaire de participation"
+              ref={formulaireParticipation}
+              defaultValue={props.edit ? props.formulaireParticipation : ""}
+            />
             <div>Image de la formation</div>
             <input type="file" onChange={fileSelectedHandler} />
             {preview && !props.edit && (

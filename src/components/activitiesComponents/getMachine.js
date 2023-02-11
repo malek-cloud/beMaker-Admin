@@ -207,6 +207,7 @@ const GetMachine = (props) => {
             prerequis={props.prerequis}
             program={props.program}
             objectifs={props.objectifs}
+            formulaireParticipation={props.formulaireParticipation}
             date={props.date}
             edit={"true"}
 

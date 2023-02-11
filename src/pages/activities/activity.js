@@ -126,6 +126,7 @@ const Activity = (props) => {
               prix={activity.prix }
               animator={activity.animator}
               date={activity.date}
+              formulaireParticipation={activity.formulaireParticipation}
               serviceid={activity.service}
               field={ activity.field}
               age={ activity.age}
