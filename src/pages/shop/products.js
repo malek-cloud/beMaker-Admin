@@ -62,12 +62,12 @@ const Product = (props) => {
                   key={item._id}
                   id={item._id}
                   name={item.name}
+                  tags={item.tags}
                   description={item.description}
                   price={item.price}
                   category={item.category}
-                  image={
-                    process.env.REACT_APP_BACKEND_URL + `${item.images[0]}`
-                  }
+                  image={item.images.url}
+                  
                 />
               ) : (
                 <div></div>

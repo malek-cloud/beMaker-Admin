@@ -94,6 +94,7 @@ const GetProduct = (props) => {
             click={"update"}
             id={props.id}
             price ={props.price}
+            tags ={props.tags}
             name={props.name}
             description={props.description}
             image={props.image}

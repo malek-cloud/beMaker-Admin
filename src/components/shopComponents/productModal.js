@@ -7,6 +7,7 @@ function ProductModal(props) {
   const nom = useRef();
   const description = useRef();
   const price = useRef();
+  const tags = useRef();
   const [selectedFile, setSelectedFile] = useState(null);
   const [loader, setLoader] = useState(false);
   const [preview, setPreview] = useState(false);
@@ -45,6 +46,7 @@ function ProductModal(props) {
       fd.append("name", nom.current.value);
       fd.append("image", selectedFile);
       fd.append("price", price.current.value);
+      fd.append("tags", tags.current.value);
       fd.append("category", props.category);
       fd.append("description", description.current.value);
       const response = await axios({
@@ -84,11 +86,13 @@ function ProductModal(props) {
         fd.append("image", selectedFile);
         fd.append("name", nom.current.value);
         fd.append("category", props.category);
+        fd.append("tags", tags.current.value);
         fd.append("description", description.current.value);
         console.log("fama image");
       } else {
         fd.append("price", price.current.value);
         fd.append("name", nom.current.value);
+        fd.append("tags", tags.current.value);
         fd.append("category", props.category);
         fd.append("description", description.current.value);
         console.log("famech image");
@@ -145,10 +149,19 @@ function ProductModal(props) {
             <textarea
               placeholder="description du produit..."
               cols="50"
-              rows="10"
+              rows="8"
               ref={description}
               className="descriptionModal"
               defaultValue={props.edit === "true" ? props.description : ""}
+            ></textarea>
+            <textarea
+              placeholder="Tags, exemple : tag1/tag2/tag3..."
+              cols="50"
+              rows="2"
+              ref={tags}
+              style={{marginTop:"20px"}}      
+              className="descriptionModal"
+              defaultValue={props.edit === "true" ? props.tags : ""}
             ></textarea>
           </div>
 
