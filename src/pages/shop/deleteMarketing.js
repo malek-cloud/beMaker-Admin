@@ -3,9 +3,6 @@ import axios from "axios";
 import "./marketing.css";
 function DeleteMarketing(props) {
   const deletePub = async () => {
-
-
-
       try {
             const response = await axios({
               method: "delete",
@@ -23,7 +20,7 @@ function DeleteMarketing(props) {
           }
   };
   return (
-    <div onClick={deletePub}>
+    <div onClick={deletePub} style={{cursor:"pointer"}}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="24"
