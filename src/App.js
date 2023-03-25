@@ -8,6 +8,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Participants from "./components/activitiesComponents/participants";
 import DetailedOrder from "./pages/shop/detailedOrder";
 import Login from "./pages/login";
+import Marketing from "./pages/shop/marketing";
 function App() {
   return (
     <BrowserRouter>
@@ -37,6 +38,7 @@ function App() {
                 path={`/shop/detail_order/:id`}
                 element={<DetailedOrder />}
               />      
+              <Route path="/shop/addMarketingImage" element={<Marketing inWhat={"shop marketing"}  />} />
       </Routes>
     </BrowserRouter>
   );

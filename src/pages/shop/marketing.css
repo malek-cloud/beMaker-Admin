@@ -1,0 +1,101 @@
+.marketingName {
+    width: 240px;
+    margin-left: 20px;
+}
+
+.nomPubComponent {
+    display: flex;
+    margin-top: 40px;
+}
+
+.imagedePub {
+    margin-right: 20px;
+    color: rgb(2, 8, 94);
+}
+
+.nameOfpub {
+    color: rgb(2, 8, 94);
+}
+
+.addMarketing {
+    border: 1px solid rgb(43, 2, 2);
+    margin: 20px;
+    padding: 20px;
+    width: 560px;
+    height: fit-content;
+}
+
+.addMarketingTitle {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 20px;
+    color: rgb(43, 2, 2);
+    font-weight: 600;
+}
+
+.imageModalMarketing {
+    width: 500px;
+    height: 270px;
+    margin-top: 16px;
+}
+
+.choosePubFile {
+    display: flex;
+    margin-top: 40px;
+}
+
+.createPubButton {
+    text-align: center;
+    background-color: rgb(2, 8, 94);
+    margin: 16px 180px;
+    padding: 6px 0px;
+    font-size: 20px;
+    color: white;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    cursor: pointer;
+}
+
+.marketingComponent {
+    display: flex;
+    justify-content: space-between;
+}
+
+.allMarketing {
+    width: 680px;
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid rgb(43, 2, 2);
+}
+
+.storeedMarketingTitle {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: rgb(43, 2, 2);
+    font-weight: 600;
+}
+
+.marketingItems {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.imageOfStoredMarketing {
+    height: 180px;
+    width: 400px;
+}
+
+.oneMarketingPiece {
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid rgb(43, 2, 2);
+    display: flex;
+    width: 580px;
+    justify-content: space-around;
+}

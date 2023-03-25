@@ -104,9 +104,9 @@ const Shop = () => {
           {" "}
           <div className="mainText">Acccessoires</div>
         </Link>
-        <Link to="/shop/addCategory" className="elementActivity">
+        <Link to="/shop/addMarketingImage" className="elementActivity">
           {" "}
-          <div className="plusSigne">+</div>
+          <div className="mainText">Shop Marketing</div>
         </Link>
       </div>
       
