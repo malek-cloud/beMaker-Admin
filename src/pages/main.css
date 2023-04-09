@@ -2,7 +2,7 @@
     background-color: rgba(121, 118, 118, 0.075);
     /* background-color: rgb(252, 252, 252);*/
     text-align: center;
-    height: 100vh;
+    height: fit-content;
     overflow-y: hidden;
 }
 

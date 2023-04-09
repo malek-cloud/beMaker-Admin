@@ -80,29 +80,49 @@ const Shop = () => {
           {" "}
           <div className="mainText">Cartes de Développement</div>
         </Link>
-        <Link to="/shop/kitRobotique" className="elementActivity">
+        <Link to="/shop/robotique" className="elementActivity">
           {" "}
-          <div className="mainText">Kit Robotique</div>
+          <div className="mainText">Robotique</div>
         </Link>
-        <Link to="/shop/kitIot" className="elementActivity">
+        <Link to="/shop/iot" className="elementActivity">
           {" "}
-          <div className="mainText">Kit IOT</div>
+          <div className="mainText">IOT</div>
         </Link>
-        <Link to="/shop/kitArduino" className="elementActivity">
+        <Link to="/shop/modules" className="elementActivity">
           {" "}
-          <div className="mainText">Kit Arduino</div>
+          <div className="mainText">Modules</div>
         </Link>
-        <Link to="/shop/clipartLaser" className="elementActivity">
+        <Link to="/shop/afficheurs" className="elementActivity">
           {" "}
-          <div className="mainText">Clipart Découpe Laser</div>
+          <div className="mainText">Afficheurs</div>
         </Link>
         <Link to="/shop/capteur" className="elementActivity">
           {" "}
           <div className="mainText">Capteurs</div>
         </Link>
-        <Link to="/shop/accessoires" className="elementActivity">
+        <Link to="/shop/drone" className="elementActivity">
           {" "}
-          <div className="mainText">Acccessoires</div>
+          <div className="mainText">Drone & Aeromodele</div>
+        </Link>
+        <Link to="/shop/moteurs" className="elementActivity">
+          {" "}
+          <div className="mainText">Moteurs & Drivers</div>
+        </Link>
+        <Link to="/shop/electronique" className="elementActivity">
+          {" "}
+          <div className="mainText">Composants electroniques</div>
+        </Link>
+        <Link to="/shop/alimentation" className="elementActivity">
+          {" "}
+          <div className="mainText">Alimentation & Batteries</div>
+        </Link>
+        <Link to="/shop/connecteurs" className="elementActivity">
+          {" "}
+          <div className="mainText">Connecteurs et cables</div>
+        </Link>
+        <Link to="/shop/outillages" className="elementActivity">
+          {" "}
+          <div className="mainText">Outillages & Mesures</div>
         </Link>
         <Link to="/shop/addMarketingImage" className="elementActivity">
           {" "}
